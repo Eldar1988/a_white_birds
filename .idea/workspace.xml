@@ -21,6 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2b2fc435-27f4-45fe-9a13-3b7cb353fa16" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloDjango/apps/awards/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloDjango/apps/awards/templates/awards/error_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/templates/awards/form_error.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +50,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="consentGiven" value="true" />
@@ -105,7 +108,7 @@
       <workItem from="1595822319015" duration="16466000" />
       <workItem from="1595864817188" duration="138000" />
       <workItem from="1595930050877" duration="218000" />
-      <workItem from="1595930271363" duration="6821000" />
+      <workItem from="1595930271363" duration="7992000" />
     </task>
     <servers />
   </component>

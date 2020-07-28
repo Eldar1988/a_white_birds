@@ -21,7 +21,7 @@
                 {% else %}
                 Новый участник премии
                 {% endif %}
-                {{ form.errors }}
+
             </h2>
             <nav aria-label="breadcrumb text-center">
                 <ol class="breadcrumb">
@@ -72,6 +72,12 @@
             </div>
 
             <div class="col-md-8 position-relative mobile-mt-25">
+
+                {% if form.errors %}
+                <div class="alert alert-danger" role="alert">
+                  {{ form.errors }}
+                </div>
+                {% endif %}
 
                 {% if user.request.to_edit_notification %}
                 <div class="alert alert-success" role="alert">

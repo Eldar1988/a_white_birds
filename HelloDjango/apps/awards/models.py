@@ -105,7 +105,7 @@ class Request(models.Model):
                                 blank=True, null=True)
     name = models.CharField('ФИО', max_length=200)
     avatar = models.ImageField('Ваша фотография', blank=True, null=True,
-                               upload_to=path_and_rename("award_files/avatars/", 'presentation'))
+                               upload_to=path_and_rename("award_files/avatars/", 'avatar'))
     company = models.CharField('Компания', max_length=200)
     professional = models.CharField('Должность', max_length=100)
     email = models.EmailField('Email')
