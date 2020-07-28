@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2b2fc435-27f4-45fe-9a13-3b7cb353fa16" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ecWKDarCIilPHtKHVydvS2MLAP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="consentGiven" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/HelloDjango/apps/awards" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DevSpace\Desktop\Алия форум\project\HelloDjango\apps" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DevSpace\Desktop\Алия форум\project\HelloDjango\apps\awards" />
+      <recent name="C:\Users\DevSpace\Desktop\Алия форум\project\HelloDjango\apps\hhbase" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2b2fc435-27f4-45fe-9a13-3b7cb353fa16" name="Default Changelist" comment="" />
+      <created>1594621295204</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594621295204</updated>
+      <workItem from="1594621346348" duration="1265000" />
+      <workItem from="1594647161617" duration="623000" />
+      <workItem from="1594702460199" duration="12106000" />
+      <workItem from="1594726641961" duration="76000" />
+      <workItem from="1594726799390" duration="3975000" />
+      <workItem from="1594743996850" duration="202000" />
+      <workItem from="1594744459500" duration="1989000" />
+      <workItem from="1594746462090" duration="10102000" />
+      <workItem from="1594800784009" duration="5916000" />
+      <workItem from="1594870959028" duration="4086000" />
+      <workItem from="1595277128263" duration="5252000" />
+      <workItem from="1595313913710" duration="39000" />
+      <workItem from="1595435657967" duration="339000" />
+      <workItem from="1595436010888" duration="13204000" />
+      <workItem from="1595487757138" duration="10495000" />
+      <workItem from="1595566779179" duration="85000" />
+      <workItem from="1595569599443" duration="6377000" />
+      <workItem from="1595597878928" duration="66468000" />
+      <workItem from="1595706796395" duration="10801000" />
+      <workItem from="1595746946748" duration="50000" />
+      <workItem from="1595749205903" duration="30289000" />
+      <workItem from="1595804779438" duration="15830000" />
+      <workItem from="1595822319015" duration="16466000" />
+      <workItem from="1595864817188" duration="138000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="178" width="816" height="729" key="#Intentions" timestamp="1595801794768">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" width="816" height="729" key="#Intentions/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595801794768" />
+    <state x="845" y="383" width="618" height="586" key="#Notifications" timestamp="1595749618557">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="845" y="383" width="618" height="586" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595749618557" />
+    <state x="565" y="244" key="EditFileWatcherDialog" timestamp="1595436903216">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="565" y="244" key="EditFileWatcherDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595436903216" />
+    <state x="796" y="348" key="FileChooserDialogImpl" timestamp="1595864951332">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="796" y="348" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595864951332" />
+    <state x="1972" y="110" width="1788" height="893" key="SettingsEditor" timestamp="1595749590763">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1972" y="110" width="1788" height="893" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595749590763" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1595530943477">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595530943477" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/HelloDjango/apps/awards/models.py</url>
+          <line>43</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/HelloDjango/apps/awards/models.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/HelloDjango/apps/awards/models.py</url>
+          <line>96</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/HelloDjango/apps/awards/forms.py</url>
+          <line>75</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/HelloDjango/apps/awards/views.py</url>
+          <line>40</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/HelloDjango/apps/awards/urls.py</url>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/HelloDjango/apps/awards/views.py</url>
+          <line>112</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

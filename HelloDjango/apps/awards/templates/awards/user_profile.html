@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ user.first_name }} | {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+  <!-- Хлебный крошки  -заголовок -->
+  <section id="birds-bg" class="breadcump" style="height: 30vh;">
+    <div class="">
+      <div class="content">
+        <h2 class="page-header text-center">
+          {{ user.first_name }}
+        </h2>
+        <nav aria-label="breadcrumb text-center">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Главная</a></li>
+            <li class="breadcrumb-item active">
+                Личный кабинет
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+
+<section class="content-start mb-5">
+    <div class="container content-block mt-5">
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="user-profile text-center">
+                        <div class="user-avatar ">
+                            <i class="icofont-user-alt-3 display-3"></i>
+                        </div>
+                  <h4 class="text-center">{{ user.first_name }}</h4>
+                </div>
+                {% if not user.hhrequest %}
+                <div class="hh-form">
+                    {% include 'includes/hh_form.html' %}
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="col-md-8 position-relative">
+                <div class="alert alert-primary" role="alert">
+                  Здесь будут видны заявки, за которые Вы проголосовали.
+                </div>
+            </div>
+        </div>
+
+
+    </div><!-- Container -->
+  </section>
+
+{% endblock %}

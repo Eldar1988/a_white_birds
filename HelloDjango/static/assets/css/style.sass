@@ -1,0 +1,91 @@
+$red-color: #ed3236
+$black-color: #333
+$grey-color: #6c757d
+
+
+//HEADER
+.my-red-bg
+    background: $black-color
+
+#logo 
+    max-width: 190px
+
+
+
+// HOME
+#birds-bg
+    background: $red-color
+    width: 100%
+    height: 100vh
+    position: relative
+    h1
+        font-size: 59px
+        text-transform: uppercase
+        font-weight: 700
+        letter-spacing: 5px
+
+    .card
+        border-radius: 8px
+        box-shadow: 35px 35px 35px 0 rgba(0,0,0,0.1) 
+    p
+        font-weight: 100
+        letter-spacing: 1px
+
+.home-content
+    position: absolute
+    top: 30%
+    left: 50%
+    transform: translateX(-50%)
+    text-align: center
+.hero-card
+    background: $red-color
+    button
+        letter-spacing: 2px
+#white-h
+    background: #ffffff
+    color: $red-color
+    padding: 0 25px
+#birds
+    letter-spacing: 24px
+    margin-left: 21px
+
+
+//Footer
+
+footer
+    background: $black-color
+
+
+// PAGES
+.page-header
+    padding-top: 100px
+    color: #fff
+    font-weight: 400
+
+.icon-card
+    
+    border-radius: 10px
+    padding: 30px 15px 15px
+    box-shadow: 5px 5px 15px 0 rgba(0,0,0,0.1)
+    transition: 1s all
+    
+    &:hover
+        transform: rotateY(5deg)
+        transform-origin: center center
+        box-shadow: -15px 5px 15px 0 rgba(0,0,0,0.2)
+.my-tabs
+    .nav
+        justify-content: space-around
+
+// Adaptive styles
+@media screen and ( max-width: 800px )
+    .navbar-nav
+        margin-top: 30px
+
+    .navbar-collapse .mob-style-nav
+        border-bottom: 1px solid $grey-color
+    
+
+@media screen and ( max-width: 650px )
+    .page-header
+        padding-top: 70px

@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{% if user.request %}
+{{ user.request.name }} | {{ block.super }}
+{% else %}
+Новый участник премии | {{ block.super }}
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<!-- Хлебный крошки  -заголовок -->
+<section id="birds-bg" class="breadcump" style="height: 30vh;">
+    <div class="">
+        <div class="content">
+            <h2 class="page-header text-center">
+                {% if user.request %}
+                {{ user.request.name }}
+                {% else %}
+                Новый участник премии
+                {% endif %}
+            </h2>
+            <nav aria-label="breadcrumb text-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Главная</a></li>
+                    <li class="breadcrumb-item active">
+                        {% if user.request %}
+                        {{ user.request.name }}
+                        {% else %}
+                        Новый участник премии
+                        {% endif %}
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+
+
+<section class="content-start mb-5">
+<div class="container ">
+    <div class="content-block mt-5">
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="user-profile text-center">
+                    {% if user.request %}
+                    <div class="user-avatar ">
+                        <img src="{% static 'assets/img/mini_bird.png' %}" data-src="{{ award_request.avatar.url }}" alt="" title="{{ award_request.name }}" class="lazy">
+                    </div>
+                    <h4 class="mt-3">
+                        {{ user.request.name }}<br>
+                    </h4>
+                    <p>
+                        участник премии White Birds
+                    </p>
+                    {% else %}
+                    <div class="user-avatar ">
+                        <i class="icofont-business-man display-3"></i>
+                    </div>
+                    <p class="mt-3">Приветствуем Вас, <br><b>новый участник премии</b></p>
+                    {% endif %}
+                </div>
+                {% if not user.hhrequest %}
+                <div class="hh-form mobile-mt-25">
+                    {% include 'includes/hh_form.html' %}
+                </div>
+                {% endif %}
+
+            </div>
+
+            <div class="col-md-8 position-relative mobile-mt-25">
+
+                {% if user.request.to_edit_notification %}
+                <div class="alert alert-success" role="alert">
+                    {{ user.request.to_edit_notification }}
+                </div>
+                {% endif %}
+
+                {% if user.request and user.request.public %}
+
+                <div class="alert alert-success" role="alert">
+                    Ваша заявка одобрена жюри <br>и в данное время доступна всем для голосования.
+                </div>
+
+                {% elif user.request %}
+
+                <div class="alert alert-primary" role="alert">
+                    Ваша заявка принята на рассмотрение жюри.<br>
+                    Мы сообщим Вам когда Ваша заявка будет опубликована для голосования.
+                </div>
+
+                {% else %}
+
+                <form class="position-relative border border-light p-4" method="post" action="{% url 'add_request' %}"
+                    enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <p class="h4 text-center py-4">Заявка на участие в премии White Birds</p>
+
+
+                    <!--                   ЛИЧНЫЕ ДАННЫЕ-->
+                    <h5 class="text-center pt-5">Личные данные</h5>
+
+                    <div class="md-form mt-5">
+                        {{ form.name }}
+                    </div>
+
+                    <div class="md-form mt-5">
+                        {{ form.company }}
+                    </div>
+
+                    <div class="md-form mt-5">
+                        {{ form.professional }}
+                    </div>
+
+                    <div class="md-form mt-5">
+                        {{ form.phone }}
+                    </div>
+
+                    <div class="md-form mt-5">
+                        {{ form.email }}
+                    </div>
+
+                    <p class="label-p mt-5">Ваше резюме *</p>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                {{ form.resume }}
+                                <label class="custom-file-label" for="resume">Выберите файл</label>
+                            </div>
+                        </div>
+
+                    <p class="label-p mt-5">Ваша фотография (желательно в формате 1:1 - квадрат) *</p>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                {{ form.avatar }}
+                                <label class="custom-file-label" for="avatar">Выберите файл</label>
+                            </div>
+                        </div>
+
+                    <!--                   ПРОЕКТ-->
+                    <h5 class="text-center pt-5 mt-5">Ваш проект</h5>
+
+                    <div class="md-form mt-5">
+                        {{ form.project_name }}
+                    </div>
+
+                    <div class="md-form mt-5">
+                        <p class="label-p">Выберите номинацию *</p>
+                        {{ form.nomination }}
+                    </div>
+
+
+
+                    <div class="md-form mt-5">
+                        <p class="label-p">Дата внедрения проекта *</p>
+                        <input type="date" id="project_start_date" name="project_start_date">
+                    </div>
+
+                    <div class="md-form mt-5">
+                        <p class="label-p">Видео презентация на Youtube(Инструкция: <br>
+                            1. Загружаете Ваш ролик на Youtube<br>
+                            2. Нажимаете на кнопку 'Поделиться'<br>
+                            3. Выбираете первую опцию 'Встроить на сайт'<br>
+                            4. Копируете и вставляете в данное поле весь iframe<br>
+                            ВАЖНО! Заявка - не более 20 минут,
+                            описывающая все ньюансы проекта по схеме:<br>
+                            - Проблема<br>
+                            - Причины<br>
+                            - Решение<br>
+                            - Результат *</p>
+                        {{ form.video }}
+                    </div>
+
+                    <p class="label-p">Презентация проекта в формате pptx | pdf *</p>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                {{ form.presentation }}
+                                <label class="custom-file-label" for="presentation">Выберите файл</label>
+                            </div>
+                        </div>
+
+                    <div class="md-form mt-5">
+                        <p class="label-p">Описание проекта</p>
+                        {{ form.description }}
+                        {{ form.media }}
+                    </div>
+
+                    <div class="md-form mt-5">
+                        <p class="label-p">Преимущества проекта</p>
+                        {{ form.project_appoints }}
+                        {{ form.media }}
+                    </div>
+
+                    <div class="md-form mt-5">
+                        <p class="label-p">Полученные результаты</p>
+                        {{ form.results }}
+                        {{ form.media }}
+                    </div>
+                    <button class="btn peach-gradient btn-block my-4">Создать заявку <i
+                            class="icofont-login"></i></button>
+            </div>
+            </form>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+</section>
+    </div><!-- Container -->
+
+
+{% endblock %}

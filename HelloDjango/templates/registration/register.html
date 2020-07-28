@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Регистрация | {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+<!-- Хлебный крошки  -заголовок -->
+  <section id="birds-bg" class="breadcump" style="height: 30vh;">
+    <div class="">
+      <div class="content">
+        <h2 class="page-header text-center">
+          Регистрация пользователя
+        </h2>
+        <nav aria-label="breadcrumb text-center">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Главная</a></li>
+            <li class="breadcrumb-item active">Регистрация</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+<div class="container mt-5">
+  <div class="content-block">
+      <div class="border border-light sm-form">
+
+          <!-- Card body -->
+          <div class="card-body">
+              <form method="post">
+                {% csrf_token %}
+                Имя пользователя: <input type="text" name="username"><br>
+                Email: <input type="email" name="email"><br>
+                Пароль: <input type="password" name="password"><br>
+                Подтвердите пароль: <input type="password" name="password2"><br>
+
+                <input type="submit" value="Регистрация">
+            </form>
+
+          </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

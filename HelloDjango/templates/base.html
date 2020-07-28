@@ -1,0 +1,204 @@
+{% load static %}
+{% load home_tags %}
+{% get_info as infotg %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %} White Birds - Risk & leadership {% endblock %}</title>
+    <!--Favicon -->
+    <link rel="icon" href="{% static 'assets/img/favicon.ico' %}" type="image/x-icon">
+    <!-- Icons -->
+    <link rel="stylesheet" href="{% static 'assets/css/icofont.min.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="{% static 'assets/css/mdb.min.css' %}">
+    <!-- My custom styles -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/rating.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/addons/datatables.min.css' %}">
+</head>
+
+<body>
+
+    <!-- Start your project here-->
+    <header class="header fixed-top" id="header">
+        <!--Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark my-red-bg">
+            <a class="navbar-brand" href="/"><img src="{{ infotg.logo.url }}" alt="" id="logo"></a>
+
+            <div class="nav-item dropdown d-inline-block white-text d-lg-none mobile-nav-icon">
+                <ul class="navbar-nav mobile-nav-icon">
+                  <li class="nav-item dropdown ml-5 ">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            {% if request.user.is_authenticated %} {{ request.user }} {% endif %} <i
+                                class="icofont-user-alt-3"></i>
+                        </a>
+
+                        {% if request.user.is_authenticated and user.profile.partisipant %}
+
+                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                            aria-labelledby="navbarDropdownMenuLink-333">
+                            <a class="dropdown-item" href="{% url 'profile' %}">Личный кабинет участника</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Выход</a>
+                        </div>
+
+                        {% elif request.user.is_authenticated and user.profile.jury %}
+
+                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                            aria-labelledby="navbarDropdownMenuLink-333">
+                            <a class="dropdown-item" href="{% url 'profile' %}">Личный кабинет жюри</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Выход</a>
+                        </div>
+
+                        {% elif request.user.is_authenticated %}
+
+                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                            aria-labelledby="navbarDropdownMenuLink-333">
+                            <a class="dropdown-item" href="{% url 'profile' %}">Личный кабинет</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Выход</a>
+                        </div>
+
+                        {% else %}
+
+                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                            aria-labelledby="navbarDropdownMenuLink-333">
+                            <a class="dropdown-item" href="{% url 'login' %}?next={{request.path}}">Вход /
+                                Регистрация</a>
+                        </div>
+
+                        {% endif %}
+                    </li>
+                </ul>
+
+            </div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent-333" aria-controls="navbarSupportedContent-333"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent-333">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link mob-style-nav" href="/"><i class="icofont-home"></i> Главная
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mob-style-nav" href="{% url 'award' %}"><i class="icofont-award"></i>
+                            Премия</a>
+                    </li>
+
+                    {% if request.user.is_authenticated and request.user.is_staff %}
+
+                    <li class="nav-item">
+                        <a class="nav-link mob-style-nav" href="{% url 'award_detail' %}"> Премия детализация</a>
+                    </li>
+
+                    {% endif %}
+
+                    <li class="nav-item">
+                        <a class="nav-link mob-style-nav" href="#"><i class="icofont-google-map"></i> Контакты</a>
+                    </li>
+
+                </ul>
+                <ul class="navbar-nav ml-auto nav-flex-icons">
+
+                    <li class="nav-item dropdown ml-5 hide-on-mobile">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            {% if request.user.is_authenticated %} {{ request.user }} {% endif %} <i
+                                class="icofont-user-alt-3"></i>
+                        </a>
+
+                        {% if request.user.is_authenticated and user.profile.partisipant %}
+
+                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                            aria-labelledby="navbarDropdownMenuLink-333">
+                            <a class="dropdown-item" href="{% url 'profile' %}">Личный кабинет участника</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Выход</a>
+                        </div>
+
+                        {% elif request.user.is_authenticated and user.profile.jury %}
+
+                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                            aria-labelledby="navbarDropdownMenuLink-333">
+                            <a class="dropdown-item" href="{% url 'profile' %}">Личный кабинет жюри</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Выход</a>
+                        </div>
+
+                        {% elif request.user.is_authenticated %}
+
+                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                            aria-labelledby="navbarDropdownMenuLink-333">
+                            <a class="dropdown-item" href="{% url 'profile' %}">Личный кабинет</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Выход</a>
+                        </div>
+
+                        {% else %}
+
+                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                            aria-labelledby="navbarDropdownMenuLink-333">
+                            <a class="dropdown-item" href="{% url 'login' %}?next={{request.path}}">Вход /
+                                Регистрация</a>
+                        </div>
+
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--/.Navbar -->
+    </header>
+    <main id="content" class="site-content">
+        style="transition:1.5s; margin-top: 70px; filter: blur(10px); opacity: 0; z-index: 1;">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="page-footer font-small">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">{{ infotg.copyright }}
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static 'assets/js/popper.min.js' %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <!-- MDB core JavaScript -->
+
+    <script type="text/javascript" src="{% static 'assets/js/mdb.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/scripts.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/addons/datatables.min.js' %}"></script>
+    <!-- Your custom scripts (optional) -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#content").css("filter", "blur(0)");
+            $("#content").css("opacity", "1");
+        });
+    </script>
+    <!-- Animation -->
+    <script src="{% static 'assets/js/three.min.js' %}"></script>
+    <script src="{% static 'assets/js/birds.min.js' %}"></script>
+    <script src="{% static 'assets/js/birds-bg.js' %}"></script>
+    <script src="{% static 'assets/js/lazy.js' %}"></script>
+
+
+</body>
+
+</html>

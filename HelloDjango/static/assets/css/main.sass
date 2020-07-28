@@ -1,0 +1,275 @@
+$red-color: #ed3236
+$black-color: #333
+$grey-color: #6c757d
+$body-font-size: 14px
+$f-f: 'Montserrat', sans-serif
+$my-shadow: 5px 5px 15px 0 rgba(0,0,0,0.1)
+
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+html
+    margin: 0    
+
+body
+    font-family: $f-f, sans-serif
+    letter-spacing: .5px
+    font-size: 14px
+    margin: 0
+
+a
+    color: $black-color
+    font-weight: 400
+    &:hover
+        color: $red-color
+
+.dropdown-menu
+    background: $black-color
+    color: #fff
+
+.navbar .dropdown-menu a:not(.active)
+    color: #fff
+.dropdown-item:focus, .dropdown-item:hover
+    background: $grey-color
+
+.btn
+    box-shadow: none
+    border-radius: 5px
+
+.btn:hover, .btn:focus, .btn:active
+    outline: 0
+    box-shadow: 5px 5px 15px 0 rgba(0,0,0,0.2)
+
+.peach-gradient
+    background: linear-gradient(40deg, #ffd86f, $red-color) !important
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active
+    color: $red-color
+    background-color: none
+    border: 2px solid $red-color
+
+fw-400
+    font-weight: 400
+fw-600
+    font-weight: 600
+
+.breadcrumb
+    background-color: inherit
+    justify-content: center
+    a
+        color: #fff
+.breadcrumb-item.active, .breadcrumb-item+.breadcrumb-item::before
+    color: #dee2e6
+
+.nav-tabs .nav-link
+    font-weight: 600
+.nav-tabs
+    border-bottom: none
+
+.nav-tabs .nav-link
+    border: none
+    border-top-left-radius: 0
+    border-top-right-radius: 0
+    border-radius: 5px
+
+.my-img
+    max-width: 100%
+
+.my-border
+    border-radius: 10px
+    overflow: hidden
+
+.perspective-500
+    perspective: 500px
+
+.card
+    border-radius: 10px
+    box-shadow: $my-shadow
+    overflow: hidden
+
+.icons-4 i
+    font-size: 50px
+
+.card .card-body .card-text
+    font-size: $body-font-size
+
+.modal-dialog .modal-content
+    border-radius: 10px
+
+.content-block
+    box-shadow: 35px 35px 35px 0 rgba(0, 0, 0, 0.1)
+    border-radius: 10px
+    padding: 50px 20px 
+    margin-bottom: 100px
+
+.border 
+    border-radius: 5px
+
+.sm-form
+    max-width: 50%
+    margin: 0 auto
+
+.icon-absolute
+    position: absolute
+    font-size: 39px
+    right: 15px
+    top: 15px
+    color: #999
+    transition: 1s all
+    &:hover
+        color: $red-color
+
+.md-form .prefix ~ input, .md-form .prefix ~ textarea, input, optgroup, select, textarea
+    width: 100%
+    margin-left: 0
+
+.md-form input:not([type]):focus:not([readonly]), .md-form input[type="text"]:not(.browser-default):focus:not([readonly]), .md-form input[type="password"]:not(.browser-default):focus:not([readonly]), .md-form input[type="email"]:not(.browser-default):focus:not([readonly]), .md-form input[type="url"]:not(.browser-default):focus:not([readonly]), .md-form input[type="time"]:not(.browser-default):focus:not([readonly]), .md-form input[type="date"]:not(.browser-default):focus:not([readonly]), .md-form input[type="datetime"]:not(.browser-default):focus:not([readonly]), .md-form input[type="datetime-local"]:not(.browser-default):focus:not([readonly]), .md-form input[type="tel"]:not(.browser-default):focus:not([readonly]), .md-form input[type="number"]:not(.browser-default):focus:not([readonly]), .md-form input[type="search"]:not(.browser-default):focus:not([readonly]), .md-form input[type="phone"]:not(.browser-default):focus:not([readonly]), .md-form input[type="search-md"]:focus:not([readonly]), .md-form textarea.md-textarea:focus:not([readonly]) 
+    border-bottom: 1px solid $red-color
+    box-shadow: 0 1px 0 0 $red-color
+
+.label-p
+    color: #212529
+
+.user-avatar img
+    max-width: 100%
+    border-radius: 5px
+
+.content-block
+    box-shadow: 35px 35px 35px 0 rgba(0, 0, 0, 0.1)
+    border-radius: 10px
+
+.custom-select:focus
+    border-color: $red-color
+    box-shadow: none
+
+.custom-file-input:focus~.custom-file-label
+    border-color: $red-color
+    box-shadow: none
+
+footer
+    // margin-top: 300px
+
+.border-light
+    border-color: #f1f1f1 !important
+
+.transition-fade
+  transition: 1s
+  opacity: 1
+
+html.is-animating .transition-fade
+  opacity: 0
+
+.hh-form .card-body
+    padding: 0
+
+.fw-600
+    font-weight: 600
+
+.card-border
+    border: 1px solid #f3f3f3
+    border-radius: 5px
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0,.03)
+    transition: 1s all
+    &:hover
+        box-shadow: 0px 5px 15px 0px rgba(237,50,54,.1)
+
+.lg-icon
+    font-size: 20px
+
+.embed-responsive
+    border-radius: 5px
+    overflow: hidden
+    box-shadow: $my-shadow
+
+.custom-control-input:checked~.custom-control-label::before
+    border-color: $red-color
+    background-color: $red-color
+
+.green-border-focus .form-control:focus
+    border: 1px solid $red-color
+    box-shadow: 0 0 0 0.2rem rgba(217, 22, 22, .25)
+
+.modal-backdrop.show
+    display: none
+    
+.card-avatar
+    max-width: 100%
+    min-width: 100%
+    border-radius: 5px
+.btn.btn-block
+    margin: 10px 0
+.mt--30
+    margin-top: -30px
+
+.request-cards
+    transition: 1s all
+
+.table th, table td
+    font-size: 12px
+    border: 1px solid #efefef
+
+.table
+    margin-bottom: 0
+
+.modal 
+    top: 100px
+    height: 90vh
+    overflow: hidden
+    width: 90%
+    left: 5%
+
+.modal-open .modal
+    overflow-x: hidden
+    overflow-y: hidden
+
+
+
+@media screen and ( max-width: 991px )
+    .mobile-nav-icon
+        position: fixed
+        z-index: 1000
+        top: 20px 
+        right: 60px
+        & i 
+            font-size: 16px
+        & .navbar-nav
+            margin-top: 0
+
+    body
+        font-size: 13px
+        line-height: 18px
+
+    .hide-on-mobile
+        display: none
+
+    .mobile-mt-25
+        margin-top: 25px
+    
+    .sm-form
+        max-width: 100%
+
+    .custom-select
+        font-size: 12px
+        
+@media screen and (max-width: 650px)
+    .sm-mt-15
+        margin-top: 15px
+
+    .sm-mt-50
+        margin-top: 50px
+
+    .d-block-sm
+        display: block
+
+    a.waves-effect, a.waves-light
+        display: block
+
+    .icon-absolute 
+        top: -15px
+        right: -15px
+
+    .content-block
+        padding: 50px 10px

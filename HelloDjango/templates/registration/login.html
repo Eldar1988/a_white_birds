@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Вход/Регистрация | {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+<!-- Хлебный крошки  -заголовок -->
+<section id="birds-bg" class="breadcump" style="height: 30vh;">
+    <div class="">
+        <div class="content">
+            <h2 class="page-header text-center">
+                Вход | Регистрация пользователей
+            </h2>
+            <nav aria-label="breadcrumb text-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Главная</a></li>
+                    <li class="breadcrumb-item active">Вход - регистрация</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<div class="container mt-5">
+    <div class="content-block">
+        <div class=" sm-form">
+            <div class="mt-5 mb-5 my-tabs border border pt-5">
+                <p class="h4 text-center py-4">Добро пожаловать</p>
+                {% if next == 'message' %}
+                    <div class="alert alert-success ml-3 mr-3" role="alert" >
+                      Регистрация прошла успешно!<br>
+                        Вам осталось только войти используя Ваш логин и пароль.
+                    </div>
+                {% endif %}
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                            aria-controls="home" aria-selected="true">Вход</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                            aria-controls="profile" aria-selected="false">Регистрация</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="myTabContent">
+
+<!--                  ВХОД-->
+
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <!-- Card body -->
+                        <div class="card-body">
+                            <form class="position-relative mt-5" method="post" action="{% url 'login' %}">
+                                {% csrf_token %}
+
+                                 {% if form.errors %}
+                                <div class="alert alert-danger mb-4" role="alert">
+                                    {{  form.errors }}
+
+                                </div>
+                                {% endif %}
+
+                                <div class="md-form">
+                                    <input type="text" id="materialFormCardNameEx" name="username" class="form-control">
+                                    <label for="materialFormCardNameEx" class="font-weight-light">Логин</label>
+                                </div>
+
+                                <div class="md-form mt-3">
+                                    <input type="password" name="password" id="materialFormCardPasswordEx"
+                                        class="form-control">
+                                    <label for="materialFormCardPasswordEx" class="font-weight-light">Пароль</label>
+                                </div>
+
+                                <input type="hidden" name="next" value="/" />
+
+                                <div class="text-center ">
+                                    <button class="btn peach-gradient btn-block my-4">Вход <i class="icofont-login"></i></button>
+                                </div>
+
+                            </form>
+                        </div>
+                        <!-- Card body -->
+                    </div>
+
+<!--                  РЕГИСТРАЦИЯ-->
+
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <!-- Card body -->
+                        <div class="card-body">
+                            <form class="position-relative mt-5" method="post" action="{% url 'register' %}">
+                                {% csrf_token %}
+                                {% if form.errors %}
+                                <div class="alert alert-danger mb-4" role="alert">
+                                    {{  form.errors }}
+                                </div>
+                                {% endif %}
+
+                                <div class="md-form">
+                                    <input type="text" id="materialForm1" name="username" class="form-control">
+                                    <label for="materialForm1" class="font-weight-light">Логин</label>
+                                </div>
+
+                                <div class="md-form">
+                                    <input type="text" id="materialForm0" name="first_name" class="form-control">
+                                    <label for="materialForm0" class="font-weight-light">Ваше имя</label>
+                                </div>
+
+                                <div class="md-form mt-3">
+                                    <input type="email" id="materialForm2" name="email" class="form-control">
+                                    <label for="materialForm2" class="font-weight-light">E-mail</label>
+                                </div>
+
+                                <div class="md-form mt-3">
+                                    <input type="password" name="password1" id="materialForm3" class="form-control">
+                                    <label for="materialForm3" class="font-weight-light">Пароль</label>
+                                </div>
+
+                                <input type="hidden" name="next" value="{{ next }}" />
+
+                                <div class="text-center ">
+                                    <button class="btn peach-gradient btn-block my-4">Регистрация <i class="icofont-key"></i></button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

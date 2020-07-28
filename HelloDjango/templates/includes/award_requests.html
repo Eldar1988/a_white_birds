@@ -1,0 +1,65 @@
+{% load awards_tags %}
+{% load static %}
+{% get_award_requests as award_requeststg %}
+{% get_nominations as nominations %}
+
+{% if award_requeststg.count %}
+
+<h3 class="text-center pt-5">Участники премии White Birds</h3>
+
+<div class="row mt-5 mb-5">
+    <div class="col-md-6 mt-3">
+        <div class="card-border p-2">
+            <span id="nomination">Фильтр по номинациям</span>
+        </div>
+    </div>
+    <div class="col-md-6 mt-3">
+            <select class="browser-default custom-select" id="nomination-select" >
+              <option selected>Все номинации</option>
+
+                {% for nomination in nominations %}
+                    <option value="{{ nomination.name }}" class="nomination">{{ nomination.name }}</option>
+                {% endfor %}
+            </select>
+    </div>
+</div>
+<hr>
+<div class="row">
+
+    {% for request in award_requeststg %}
+
+
+
+    <div class="col-md-12 request-cards">
+        <div class="card-border p-3 mt-5 request-card" data-nomination="{{ request.nomination }}">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="{% static 'assets/img/mini_bird.png' %}" data-src="{{ request.avatar.url }}" alt="{{ request.name }}" class="card-avatar lazy">
+                </div>
+                <div class="col-sm-8 sm-mt-15">
+                    <p>
+                        <span class="fw-600"> Номер заявки: </span>{{ request.id }}<br>
+                        <span class="fw-600"> Заявитель: </span>{{ request.name }}<br>
+                        <span class="fw-600"> Компания: </span>{{ request.company }}<br>
+                        <span class="fw-600"> Номинация: </span>{{ request.nomination }}<br>
+                        <span class="fw-600"> Название проекта: </span>{{ request.project_name }}<br>
+                        <span class="fw-600"> Количество голосов: </span>{{ request.vote.count }}<br>
+                    </p>
+                    <p class="mt-5"><span class="fw-600"> Презентации проекта: </span></p>
+                    <a href="{{ request.get_absolute_url }}" class="btn btn-outline-danger waves-effect d-block-sm">Видео презентация <i class="icofont-ui-video-play"></i></a>
+                    <a href="{{ request.presentation.url }}" target="_blank" class="btn btn-outline-danger waves-effect d-block-sm">Презентация <i class="icofont-presentation-alt"></i></a>
+
+                </div>
+            </div>
+            <hr>
+            <a href="{{ request.get_absolute_url }}" class="btn peach-gradient waves-effect btn-block mt--30">Подробнее <i
+                    class="icofont-search-2"></i></a>
+        </div>
+    </div>
+
+
+    {% endfor %}
+
+</div>
+
+{% endif %}

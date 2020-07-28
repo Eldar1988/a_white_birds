@@ -1,0 +1,60 @@
+{% load hh_base_tags %}
+{% get_hh_form as formtg %}
+
+<div class="card-body">
+    <div class="accordion" id="accordionExample275">
+        <div class="card border border-light z-depth-0">
+            <div class="card-header" id="headingOne2">
+                <p class="mt-3 pb-3">Мы формируем базу рисковиков, аудиторов, бухгалетров, контроллеров,
+                    комплаенс-офицеров, хотите ли Вы получать от нас уведомления о вакансиях?</p>
+                <h5 class="mb-0">
+                    <button class="btn peach-gradient btn-block" type="button" data-toggle="collapse"
+                        data-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
+                        Да, хотел бы <i class="icofont-ui-check"></i>
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseOne2" class="collapse" aria-labelledby="headingOne2" data-parent="#accordionExample275">
+                <div class="card-body">
+                    <form class="position-relative mt-5 p-3" method="post" action="{% url 'hh_add_request' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="md-form mt-5">
+                            <p class="label-p">Выберите профиль *</p>
+                            {{ formtg.profile }}
+                        </div>
+
+                        <div class="md-form">
+                            <p class="label-p">Выберите сферу *</p>
+                            {{ formtg.sphere }}
+                        </div>
+
+                        <div class="md-form">
+                            <p class="label-p">Ваш опыт работы *</p>
+                            {{ formtg.experience }}
+                        </div>
+
+                        <div class="md-form">
+                            <p class="label-p">Выберите запрос *</p>
+                            {{ formtg.work_request }}
+                        </div>
+
+                        <p class="label-p">Ваше резюме *</p>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                {{ formtg.resume }}
+                                <label class="custom-file-label" for="hh_resume">Выберите файл</label>
+                            </div>
+                        </div>
+
+                        <div class="text-center ">
+                            <button class="btn btn-outline-danger waves-effect btn-block my-4">Отправить <i
+                                    class="icofont-send-mail"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

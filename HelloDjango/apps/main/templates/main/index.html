@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Главная | {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+  <section id="birds-bg">
+    <div class="home-content">
+      <div class="content">
+        <h1 class="card-title text-white"> <span id="white-h">White</span><br><span id="birds">Birds</span></h1>
+        <div class="card hero-card">
+          <div class="card-body">
+
+            <p class="card-text text-white mt-3 mb-3">В данный момент сайт находится в режиме разработки,<br>
+              но вы уже можете посетить страницу премии
+            </p>
+              <a href="{% url 'award' %}"><button class="btn peach-gradient btn-block">Перейти <i class="icofont-arrow-right"></i></button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
