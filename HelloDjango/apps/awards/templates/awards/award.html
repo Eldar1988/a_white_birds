@@ -138,10 +138,26 @@
                                                 </div>
                                               </div>
                                             </div>
-                                        <a href="#" class="btn peach-gradient btn-block" data-toggle="modal"
-                                            data-target="#jury{{ jury.id }}">Интервью <i
-                                                class="icofont-ui-video-chat"></i>
-                                        </a>
+
+                                        <div class="accordion" id="accordionExample2">
+                                              <div class="z-depth-0">
+                                                <div class="" id="headingOne2">
+                                                  <p class="mb-0 text-center">
+                                                      <a href="#" class="btn peach-gradient btn-block" data-toggle="collapse"
+                                                            data-target="#jury2{{ jury.id }}">Интервью <i
+                                                                class="icofont-ui-video-chat"></i>
+                                                        </a>
+                                                  </p>
+                                                </div>
+                                                <div id="jury2{{ jury.id }}" class="collapse" aria-labelledby="headingOne"
+                                                  data-parent="#accordionExample">
+                                                  <div class="embed-responsive embed-responsive-16by9">
+                                                        {% autoescape off %} {{ jury.interview }} {% endautoescape %}
+                                                    </div>
+                                                </div>
+                                              </div>
+                                            </div>
+
                                     </div>
                                 </div>
                             </div>
