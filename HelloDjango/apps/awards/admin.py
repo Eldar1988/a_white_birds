@@ -7,7 +7,7 @@ from .models import \
     Nomination, \
     NominationJury, \
     Vote, \
-    Request, JuryApproved, Profile
+    Request, JuryApproved, Profile, AwardPartner
 
 
 @admin.register(AwardInfo)
@@ -55,6 +55,12 @@ class RequestAdmin(admin.ModelAdmin):
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'jury', 'partisipant')
     list_filter = ('jury', 'partisipant')
+    save_as = True
+
+
+@admin.register(AwardPartner)
+class AwardPartnerAdmin(admin.ModelAdmin):
+    list_display = ('name', 'url')
     save_as = True
 
 

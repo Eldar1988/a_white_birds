@@ -1,6 +1,3 @@
-import os
-from uuid import uuid4
-
 from django.db import models
 from django.urls import reverse
 
@@ -148,7 +145,7 @@ class Profile(models.Model):
     avatar = models.ImageField('Аватар (только для жюри)', null=True,
                                upload_to=path_and_rename("award_files/avatars/", 'jury'), blank=True)
     professional = models.CharField('Профессия (только для жюри)', max_length=200, null=True, blank=True)
-    preview = models.TextField('Краткая информация - один абзац (только для жюри)', max_length=500, null=True,
+    preview = RichTextUploadingField('Краткая информация(только для жюри)', null=True,
                                blank=True)
     interview = models.TextField('Ссылка на интервью (только для жюри)', null=True, blank=True)
 
@@ -160,6 +157,16 @@ class Profile(models.Model):
         verbose_name_plural = 'Профили'
 
 
+class AwardPartner(models.Model):
+    """Партнеры премии"""
+    name = models.CharField('Название компании - партнера', max_length=300)
+    url = models.URLField('Ссылка на сайт партнера', max_length=500)
+    logo = models.ImageField('Логотип')
 
+    def __str__(self):
+        return self.name
 
+    class Meta:
+        verbose_name = 'Партнер'
+        verbose_name_plural = 'Партнеры'
 

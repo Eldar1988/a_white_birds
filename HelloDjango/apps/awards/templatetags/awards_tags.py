@@ -1,5 +1,6 @@
 from django import template
-from apps.awards.models import Request, Nomination
+from apps.awards.models import Request, Nomination, AwardPartner
+
 
 register = template.Library()
 
@@ -14,3 +15,9 @@ def get_award_requests():
 def get_nominations():
     nomination = Nomination.objects.all()
     return nomination
+
+
+@register.simple_tag()
+def get_partners():
+    partners = AwardPartner.objects.all()
+    return partners

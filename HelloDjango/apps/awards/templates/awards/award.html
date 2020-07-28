@@ -118,11 +118,26 @@
                                         </a>
                                     </div>
                                     <div class="card-body ">
-                                        <h4 class="card-title">{{ jury.user.first_name }}</h4>
-                                        <h6 class="pb-3">{{ jury.professional }}</h6>
-                                        <p class="card-text">
-                                            {{ jury.preview }}
-                                        </p>
+                                        <h4 class="card-title text-center">{{ jury.user.first_name }}</h4>
+                                        <h6 class="pb-3 text-center">{{ jury.professional }}</h6>
+                                        <div class="accordion" id="accordionExample">
+                                              <div class="z-depth-0 card-border">
+                                                <div class="" id="headingOne">
+                                                  <p class="mb-0 p-1 text-center">
+                                                    <a class="accordion-p" data-toggle="collapse" data-target="#jury{{ jury.id }}"
+                                                      aria-expanded="true" aria-controls="collapseOne">
+                                                      Узнать подробнее
+                                                    </a>
+                                                  </p>
+                                                </div>
+                                                <div id="jury{{ jury.id }}" class="collapse" aria-labelledby="headingOne"
+                                                  data-parent="#accordionExample">
+                                                  <div class="card-body">
+                                                    {% autoescape off %} {{ jury.preview }} {% endautoescape %}
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
                                         <a href="#" class="btn peach-gradient btn-block" data-toggle="modal"
                                             data-target="#jury{{ jury.id }}">Интервью <i
                                                 class="icofont-ui-video-chat"></i>

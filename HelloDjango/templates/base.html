@@ -1,6 +1,8 @@
 {% load static %}
 {% load home_tags %}
+{% load awards_tags %}
 {% get_info as infotg %}
+{% get_partners as partnerstg %}
 
 <html lang="en">
 
@@ -25,6 +27,8 @@
     <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/rating.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/addons/datatables.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/slick-theme.css' %}">
 </head>
 
 <body>
@@ -159,11 +163,29 @@
         </nav>
         <!--/.Navbar -->
     </header>
-    <main id="content" class="site-content">
-        style="transition:1.5s; margin-top: 70px; filter: blur(10px); opacity: 0; z-index: 1;">
+    <main id="content" class="site-content" style="transition:1.5s; margin-top: 70px; filter: blur(10px); opacity: 0; z-index: 1;">
         {% block content %}
         {% endblock %}
     </main>
+    <section id="partners" class="mt-5">
+        <div class="container">
+            <h3 class="text-center">Наши партнеры</h3>
+            <div id="partners-slider" class="mt-5"  style="height: 400px;">
+
+                {% for partner in partnerstg %}
+                <div class="slider-item">
+                    <a href="{{ partner.url }}" target="_blank" title="Перейти на сайт партнера">
+                        <img src="{{ partner.logo.url }}" alt="" style="max-width: 100%;">
+                    </a>
+                    <a href="{{ partner.url }}" target="_blank" title="Перейти на сайт партнера">
+                        <p class="text-center fw-600 mt-3">{{ partner.name }}</p>
+                    </a>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
 
     <footer class="page-footer font-small">
         <!-- Copyright -->
@@ -197,6 +219,7 @@
     <script src="{% static 'assets/js/birds.min.js' %}"></script>
     <script src="{% static 'assets/js/birds-bg.js' %}"></script>
     <script src="{% static 'assets/js/lazy.js' %}"></script>
+    <script src="{% static 'assets/js/slick.min.js' %}"></script>
 
 
 </body>

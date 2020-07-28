@@ -18,6 +18,45 @@ function GetRating(x) {
 }
 
 /*
+Partners Slider
+ */
+$(document).ready(function() {
+    $('#partners-slider').slick({
+        dots: true,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        arrows: false,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+});
+
+/*
 Сортировка заявок по категориям
  */
 let select_on = document.getElementById('nomination-select');
@@ -31,23 +70,6 @@ select_on.addEventListener('change', async function(){
       if (getValue == 'Все номинации') {
           $('.request-card').fadeIn();
       }
-
     });
 
-for (let anchor of anchors) {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault()
-
-    const blockID = anchor.getAttribute('href').substr(1)
-
-    document.getElementById(blockID).scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    })
-  })
-}
-
-/*
-Popap
- */
 
