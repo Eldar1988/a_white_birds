@@ -64,12 +64,15 @@ class AddRequestView(View):
     """Создание заявки на участие"""
     def post(self, request):
         form = AwardRequestForm(request.POST, request.FILES)
+
         if form.is_valid():
             form = form.save(commit=False)
             form.user = request.user
             form.save()
+            return redirect('profile')
 
-        return redirect('profile')
+        else:
+            return render(request, 'awards/form_error.html', {'form': form})
 
 
 class RegisterView(View):

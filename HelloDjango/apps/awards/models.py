@@ -1,9 +1,14 @@
+import os
+from uuid import uuid4
+
 from django.db import models
 from django.urls import reverse
 
 from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils import timezone
+
+from .functions import path_and_rename
 
 
 class AwardsIconBlock(models.Model):
@@ -25,7 +30,7 @@ class AwardInfo(models.Model):
     """Информация о премии"""
     award_title = models.CharField('Блок премия - заголовок', max_length=200)
     award_description = RichTextUploadingField('Блок премия - описание')
-    award_image = models.ImageField('Блок премия - картинка', upload_to='images/',
+    award_image = models.ImageField('Блок премия - картинка', upload_to=path_and_rename("site/", 'image'),
                               help_text='не забудьте оптимизировать картинку на сайте https://tinypng.com/')
 
     jury_title = models.CharField('Блок жюри - заголовок', max_length=200)
@@ -96,9 +101,11 @@ class JuryApproved(models.Model):
 
 class Request(models.Model):
     """Заявка на участие"""
-    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Пользователь на сайте', blank=True, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Пользователь на сайте',
+                                blank=True, null=True)
     name = models.CharField('ФИО', max_length=200)
-    avatar = models.ImageField('Ваша фотография', blank=True, null=True)
+    avatar = models.ImageField('Ваша фотография', blank=True, null=True,
+                               upload_to=path_and_rename("award_files/avatars/", 'presentation'))
     company = models.CharField('Компания', max_length=200)
     professional = models.CharField('Должность', max_length=100)
     email = models.EmailField('Email')
@@ -109,9 +116,10 @@ class Request(models.Model):
     project_appoints = RichTextUploadingField('Преимущества проекта', null=True)
     description = RichTextUploadingField('Описание проекта', null=True)
     results = RichTextUploadingField('Результаты, полученные после внедрения проекта', null=True)
-    resume = models.FileField('Резюме заявителя', upload_to='award_files/')
+    resume = models.FileField('Резюме заявителя', upload_to=path_and_rename("award_files/resume/", 'resume'))
     video = models.TextField('Youtube ролик с видеопрезентацией проекта')
-    presentation = models.FileField('Презентация проекта (форматы pptx/pdf)', upload_to='award_files/')
+    presentation = models.FileField('Презентация проекта (форматы pptx/pdf)',
+                                    upload_to=path_and_rename("award_files/presentations/", 'presentation'))
     jurys_nomination = models.ManyToManyField(NominationJury, verbose_name='Рекомендовать к номинации', blank=True)
     vote = models.ManyToManyField(Vote, verbose_name='Голос', blank=True)
     jury_approved = models.ManyToManyField(JuryApproved, verbose_name='Мнения жюри', blank=True)
@@ -137,9 +145,11 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=User, verbose_name='Пользователь')
     jury = models.BooleanField('Статус жюри', default=False)
     partisipant = models.BooleanField('Статус участника', default=False)
-    avatar = models.ImageField('Аватар (только для жюри)', null=True, upload_to='award_files/', blank=True)
+    avatar = models.ImageField('Аватар (только для жюри)', null=True,
+                               upload_to=path_and_rename("award_files/avatars/", 'jury'), blank=True)
     professional = models.CharField('Профессия (только для жюри)', max_length=200, null=True, blank=True)
-    preview = models.TextField('Краткая информация - один абзац (только для жюри)', max_length=500, null=True, blank=True)
+    preview = models.TextField('Краткая информация - один абзац (только для жюри)', max_length=500, null=True,
+                               blank=True)
     interview = models.TextField('Ссылка на интервью (только для жюри)', null=True, blank=True)
 
     def __str__(self):
@@ -148,5 +158,8 @@ class Profile(models.Model):
     class Meta:
         verbose_name = 'Профиль'
         verbose_name_plural = 'Профили'
+
+
+
 
 
