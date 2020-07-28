@@ -23,26 +23,28 @@
         </div>
     </div>
 </section>
+
 <!-- Start Content -->
 <section class="content-start mb-5">
-
     <div class="container">
         <div class="content-block mt-5">
 
             <!-- Табы -->
             <div class="mt-5 my-tabs">
+
+<!--                Табы навигация-->
                 <ul class="nav nav-tabs md-tabs fw-400" id="myTabEx" role="tablist">
                     <li class="nav-item fw-400">
                         <a class="nav-link active show fw-400" id="home-tab-ex" data-toggle="tab" href="#home-ex"
                             role="tab" aria-controls="home-ex" aria-selected="true">Премия</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="profile-tab-ex" data-toggle="tab" href="#profile-ex" role="tab"
-                            aria-controls="profile-ex" aria-selected="false">Жюри</a>
+                        <a class="nav-link" id="contact-tab-ex" data-toggle="tab" href="#contact-ex" role="tab"
+                            aria-controls="contact-ex" aria-selected="false">Участники</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="contact-tab-ex" data-toggle="tab" href="#contact-ex" role="tab"
-                            aria-controls="contact-ex" aria-selected="false">Участие</a>
+                        <a class="nav-link" id="profile-tab-ex" data-toggle="tab" href="#profile-ex" role="tab"
+                            aria-controls="profile-ex" aria-selected="false">Жюри</a>
                     </li>
                 </ul>
 
@@ -52,6 +54,11 @@
                     <!-- Описание премии -->
                     <div class="tab-pane fade active show wow fadeIn" id="home-ex" role="tabpanel"
                         aria-labelledby="home-tab-ex">
+
+<!--                        Заголовок-->
+                        <h3 class="text-center mt-5">{{ award.award_title }}</h3>
+
+<!--                        Описание и картинка-->
                         <div class="row" class="transition-fade">
                             <div class="col-md-5">
                                 <div class="my-border">
@@ -59,12 +66,12 @@
                                 </div>
                             </div>
                             <div class="col-md-7">
-                                <h3 class="text-center mt-5">{{ award.award_title }}</h3>
                                 <p class="mt-5">{% autoescape off %} {{ award.award_description }} {% endautoescape %}
                                 </p>
                             </div>
                         </div>
 
+<!--                            Иконки-->
                         <div class="row mt-5 perspective-500">
 
                             {% for icon in icon_block %}
@@ -85,42 +92,47 @@
 
                         </div>
 
-
+<!--                        Участие описание-->
+                         <h3 class="text-center mt-5">{{ award.involvement_title }}</h3>
+                        <p class="mt-5">{% autoescape off %} {{ award.involvement_description }} {% endautoescape %}</p>
                     </div>
 
                     <!-- Жюри -->
                     <div class="tab-pane fade wow fadeIn" id="profile-ex" role="tabpanel"
                         aria-labelledby="profile-tab-ex">
+
+<!--                        Заголовок и описание-->
                         <h3 class="text-center mt-5">{{ award.jury_title }}</h3>
                         <p class="mt-5">{% autoescape off %} {{ award.jury_description }} {% endautoescape %}</p>
 
+<!--                        Карточки жюри-->
                         <div class="row mt-5 jury mb-5">
 
                             {% for jury in jurys %}
                             <div class="col-md-6 col-lg-4">
-                                <!-- Card -->
                                 <div class="card mt-4">
-                                    <!-- Card image -->
                                     <div class="view overlay">
                                         <img class="card-img-top lazy" src="{% static 'assets/img/mini_bird.png' %}" data-src="{{ jury.avatar.url }}" alt="{{ jury.name }}">
                                         <a href="#!">
                                             <div class="mask rgba-white-slight"></div>
                                         </a>
                                     </div>
-                                    <!-- Card content -->
                                     <div class="card-body ">
-                                        <!-- Title -->
                                         <h4 class="card-title">{{ jury.user.first_name }}</h4>
-                                        <!-- Text -->
                                         <h6 class="pb-3">{{ jury.professional }}</h6>
                                         <p class="card-text">
                                             {{ jury.preview }}
                                         </p>
-                                        <!-- Button -->
                                         <a href="#" class="btn peach-gradient btn-block" data-toggle="modal"
                                             data-target="#jury{{ jury.id }}">Интервью <i
-                                                class="icofont-ui-video-chat"></i></a>
-                                         <div class="modal fade" id="jury{{ jury.id }}" tabindex="-1" role="dialog"
+                                                class="icofont-ui-video-chat"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+<!--                            Модальные окна-->
+                            <div class="modal fade" id="jury{{ jury.id }}" tabindex="-1" role="dialog"
                                 aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
@@ -143,31 +155,21 @@
                                     </div>
                                 </div>
                             </div>
-                                    </div>
-
-                                </div>
-                                <!-- Card -->
-
-                            </div>
-                            <!-- Modals -->
 
                             {% endfor %}
 
                         </div>
-
                     </div>
 
-                    <!-- Участие -->
+                    <!-- Участники -->
                     <div class="tab-pane fade wow fadeIn" data-wow-duration="3s" id="contact-ex" role="tabpanel"
                         aria-labelledby="contact-tab-ex">
-                        <h3 class="text-center mt-5">{{ award.involvement_title }}</h3>
-                        <p class="mt-5">{% autoescape off %} {{ award.involvement_description }} {% endautoescape %}</p>
+                        {% include 'includes/award_requests.html' %}
                     </div>
+
                 </div>
             </div>
             <hr>
-            {% include 'includes/award_requests.html' %}
-
         </div><!-- Container -->
     </div>
 </section>

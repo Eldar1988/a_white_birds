@@ -94,7 +94,14 @@ class RequestDetailView(View):
     def get(self, request, pk):
         award_request = Request.objects.get(id=pk)
         nominations = NominationJury.objects.all()
+        have_jury_vote = True
 
+        # Проверяем на наличие оценки от жюри
+        for i in award_request.jury_approved.all():
+            if i.name == request.user.first_name:
+                have_jury_vote = False
+
+        # Проверяем на нличие голсоа от пользователя
         have_vote = 0
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
         if x_forwarded_for:
@@ -107,6 +114,7 @@ class RequestDetailView(View):
                 have_vote = 1
 
         return render(request, 'awards/request_detail.html', {
+            'have_jury_vote': have_jury_vote,
             'award_request': award_request,
             'nominations': nominations,
             'have_vote': have_vote,

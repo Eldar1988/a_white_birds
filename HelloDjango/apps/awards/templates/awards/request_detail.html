@@ -16,7 +16,7 @@
             <nav aria-label="breadcrumb text-center">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/">Главная</a></li>
-                    <li class="breadcrumb-item"><a href="{% url 'award' %}">Премия White Birds</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'award' %}">Премия</a></li>
                     <li class="breadcrumb-item active">
                         Номер заявки: {{ award_request.id }}
                     </li>
@@ -57,11 +57,10 @@
                 </div>
                                     {% include 'includes/share.html' %}
 
-                {% if request.user.profile.jury %}
+                {% if request.user.profile.jury and have_jury_vote %}
 
                 <div class="card-border p-3 mt-5">
                     <h5 class="text-center mt-3">Ваша оценка <span id="jury-rating"></span></h5>
-
                     <form class="position-relative p-4" method="post" action="{% url 'add_jury_approved' award_request.id %}">
                         {% csrf_token %}
 
