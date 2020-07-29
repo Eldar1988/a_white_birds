@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
     path('add_jury_approved/<int:pk>', views.AddJuryApprovedView.as_view(), name="add_jury_approved"),
     path('', views.AwardView.as_view(), name='award'),
+    path('', views.AwardView.as_view(), name='award_new_participant'),
     path('profile/', views.ProfileView.as_view(), name='profile'),
     path('add_request/', views.AddRequestView.as_view(), name='add_request'),
     path('register/', views.RegisterView.as_view(), name="register"),

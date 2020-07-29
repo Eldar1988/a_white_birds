@@ -34,6 +34,7 @@ class AwardInfo(models.Model):
     jury_description = RichTextUploadingField('Блок жюри - описание')
     involvement_title = models.CharField('Блок участие - заголовок', max_length=200)
     involvement_description = RichTextUploadingField('Блок участие - описание')
+    votes_description = RichTextUploadingField('Блок голсование - описание (заголов 3 уровня)', blank=True, null=True)
 
     def __str__(self):
         return self.award_title
@@ -170,3 +171,17 @@ class AwardPartner(models.Model):
         verbose_name = 'Партнер'
         verbose_name_plural = 'Партнеры'
 
+
+class AwardNewParticipant(models.Model):
+    """Заявка на участие в премии"""
+    name = models.CharField('Имя', max_length=200)
+    company = models.CharField('Компания', max_length=300)
+    email = models.EmailField('Email')
+    phone = models.CharField('Телефон', max_length=50)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Новая заявка на участие'
+        verbose_name_plural = 'Новые заявки на участие'

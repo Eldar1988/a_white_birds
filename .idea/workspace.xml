@@ -20,8 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b2fc435-27f4-45fe-9a13-3b7cb353fa16" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/migrations/0024_awardinfo_votes_description.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/migrations/0025_awardnewparticipant.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloDjango/apps/awards/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloDjango/apps/awards/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloDjango/apps/awards/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HelloDjango/apps/awards/templates/awards/award.html" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/templates/awards/award.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloDjango/apps/awards/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloDjango/apps/awards/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloDjango/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloDjango/templates/includes/award_requests.html" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/templates/includes/award_requests.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +68,7 @@
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="consentGiven" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/HelloDjango" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -111,7 +122,8 @@
       <workItem from="1595822319015" duration="16466000" />
       <workItem from="1595864817188" duration="138000" />
       <workItem from="1595930050877" duration="218000" />
-      <workItem from="1595930271363" duration="18030000" />
+      <workItem from="1595930271363" duration="18634000" />
+      <workItem from="1596032096442" duration="5956000" />
     </task>
     <servers />
   </component>
@@ -128,6 +140,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -171,7 +184,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/HelloDjango/apps/awards/models.py</url>
-          <line>45</line>
+          <line>46</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -186,7 +199,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/HelloDjango/apps/awards/views.py</url>
-          <line>40</line>
+          <line>48</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -195,7 +208,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/HelloDjango/apps/awards/views.py</url>
-          <line>123</line>
+          <line>131</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>

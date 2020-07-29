@@ -4,7 +4,7 @@ from django import forms
 from ckeditor.widgets import CKEditorWidget
 from django.contrib.auth.models import User
 
-from .models import Request, JuryApproved
+from .models import Request, JuryApproved, AwardNewParticipant
 
 
 class AwardRequestForm(forms.ModelForm):
@@ -135,3 +135,10 @@ class JuryApprovedForm(forms.ModelForm):
     class Meta:
         model = JuryApproved
         fields = ('name', 'approved', 'recommendation', 'vote', 'nomination_jury', 'project')
+
+
+class AwardNewParticipantForm(forms.ModelForm):
+    """Форма оценки жюри"""
+    class Meta:
+        model = AwardNewParticipant
+        fields = ('name', 'company', 'email', 'phone')

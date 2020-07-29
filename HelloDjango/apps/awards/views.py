@@ -4,7 +4,7 @@ from django.db.models import Sum
 from django.shortcuts import render, redirect
 from django.views.generic import View
 
-from .forms import AwardRequestForm, JuryApprovedForm
+from .forms import AwardRequestForm, JuryApprovedForm, AwardNewParticipantForm
 from .models import AwardInfo, AwardsIconBlock, Request, NominationJury, Profile
 
 
@@ -14,12 +14,20 @@ class AwardView(View):
         award = AwardInfo.objects.last()
         icon_block = AwardsIconBlock.objects.all()
         jurys = Profile.objects.filter(jury=True)
+        form = AwardNewParticipantForm
 
         return render(request, 'awards/award.html', {
             'award': award,
             'icon_block': icon_block,
             'jurys': jurys,
+            'form': form,
             })
+
+    def post(self, request):
+        form = AwardNewParticipantForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('award')
 
 
 class ProfileView(View):

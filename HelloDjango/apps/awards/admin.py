@@ -7,7 +7,7 @@ from .models import \
     Nomination, \
     NominationJury, \
     Vote, \
-    Request, JuryApproved, Profile, AwardPartner
+    Request, JuryApproved, Profile, AwardPartner, AwardNewParticipant
 
 
 @admin.register(AwardInfo)
@@ -70,6 +70,13 @@ class JuryApprovedAdmin(admin.ModelAdmin):
     list_editable = ('approved',)
     search_fields = ('project', 'name', 'recommendation')
     list_filter = ('name', 'approved', 'project')
+
+
+@admin.register(AwardNewParticipant)
+class AwardNewParticipantAdmin(admin.ModelAdmin):
+    list_display = ('name', 'company', 'email', 'phone')
+    search_fields = ('name', 'company', 'email', 'phone')
+    readonly_fields = ('name', 'company', 'email', 'phone')
 
 
 admin.site.site_title = 'White Birds'

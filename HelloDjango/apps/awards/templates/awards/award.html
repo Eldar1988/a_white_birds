@@ -28,11 +28,15 @@
 <section class="content-start mb-5">
     <div class="container">
         <div class="content-block mt-5">
-
+            {% if form.errors %}
+            <div class="alert alert-danger mb-4" role="alert">
+                {{  form.errors }}
+            </div>
+            {% endif %}
             <!-- Табы -->
             <div class="mt-5 my-tabs">
 
-<!--                Табы навигация-->
+                <!--                Табы навигация-->
                 <ul class="nav nav-tabs md-tabs fw-400" id="myTabEx" role="tablist">
                     <li class="nav-item fw-400">
                         <a class="nav-link active show fw-400" id="home-tab-ex" data-toggle="tab" href="#home-ex"
@@ -40,7 +44,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="contact-tab-ex" data-toggle="tab" href="#contact-ex" role="tab"
-                            aria-controls="contact-ex" aria-selected="false">Участники</a>
+                            aria-controls="contact-ex" aria-selected="false">Голосование</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="profile-tab-ex" data-toggle="tab" href="#profile-ex" role="tab"
@@ -55,10 +59,10 @@
                     <div class="tab-pane fade active show wow fadeIn" id="home-ex" role="tabpanel"
                         aria-labelledby="home-tab-ex">
 
-<!--                        Заголовок-->
+                        <!--                        Заголовок-->
                         <h3 class="text-center mt-5">{{ award.award_title }}</h3>
 
-<!--                        Описание и картинка-->
+                        <!--                        Описание и картинка-->
                         <div class="row" class="transition-fade">
                             <div class="col-md-5">
                                 <div class="my-border">
@@ -71,7 +75,7 @@
                             </div>
                         </div>
 
-<!--                            Иконки-->
+                        <!--                            Иконки-->
                         <div class="row mt-5 perspective-500">
 
                             {% for icon in icon_block %}
@@ -92,8 +96,8 @@
 
                         </div>
 
-<!--                        Участие описание-->
-                         <h3 class="text-center mt-5">{{ award.involvement_title }}</h3>
+                        <!--                        Участие описание-->
+                        <h3 class="text-center mt-5">{{ award.involvement_title }}</h3>
                         <p class="mt-5">{% autoescape off %} {{ award.involvement_description }} {% endautoescape %}</p>
                     </div>
 
@@ -101,18 +105,19 @@
                     <div class="tab-pane fade wow fadeIn" id="profile-ex" role="tabpanel"
                         aria-labelledby="profile-tab-ex">
 
-<!--                        Заголовок и описание-->
+                        <!--                        Заголовок и описание-->
                         <h3 class="text-center mt-5">{{ award.jury_title }}</h3>
                         <p class="mt-5">{% autoescape off %} {{ award.jury_description }} {% endautoescape %}</p>
 
-<!--                        Карточки жюри-->
+                        <!--                        Карточки жюри-->
                         <div class="row mt-5 jury mb-5">
 
                             {% for jury in jurys %}
                             <div class="col-md-6 col-lg-4">
                                 <div class="card mt-4">
                                     <div class="view overlay">
-                                        <img class="card-img-top lazy" src="{% static 'assets/img/mini_bird.png' %}" data-src="{{ jury.avatar.url }}" alt="{{ jury.name }}">
+                                        <img class="card-img-top lazy" src="{% static 'assets/img/mini_bird.png' %}"
+                                            data-src="{{ jury.avatar.url }}" alt="{{ jury.name }}">
                                         <a href="#!">
                                             <div class="mask rgba-white-slight"></div>
                                         </a>
@@ -121,67 +126,42 @@
                                         <h4 class="card-title text-center">{{ jury.user.first_name }}</h4>
                                         <h6 class="pb-3 text-center">{{ jury.professional }}</h6>
                                         <div class="accordion" id="accordionExample">
-                                              <div class="z-depth-0 card-border">
+                                            <div class="z-depth-0 card-border">
                                                 <div class="" id="headingOne">
-                                                  <p class="mb-0 p-1 text-center">
-                                                    <a class="accordion-p" data-toggle="collapse" data-target="#jury{{ jury.id }}"
-                                                      aria-expanded="true" aria-controls="collapseOne">
-                                                      Узнать подробнее
-                                                    </a>
-                                                  </p>
+                                                    <p class="mb-0 p-1 text-center">
+                                                        <a class="accordion-p" data-toggle="collapse"
+                                                            data-target="#jury{{ jury.id }}" aria-expanded="true"
+                                                            aria-controls="collapseOne">
+                                                            Узнать подробнее
+                                                        </a>
+                                                    </p>
                                                 </div>
-                                                <div id="jury{{ jury.id }}" class="collapse" aria-labelledby="headingOne"
-                                                  data-parent="#accordionExample">
-                                                  <div class="card-body">
-                                                    {% autoescape off %} {{ jury.preview }} {% endautoescape %}
-                                                  </div>
+                                                <div id="jury{{ jury.id }}" class="collapse"
+                                                    aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                    <div class="card-body">
+                                                        {% autoescape off %} {{ jury.preview }} {% endautoescape %}
+                                                    </div>
                                                 </div>
-                                              </div>
                                             </div>
-
+                                        </div>
                                         <div class="accordion" id="accordionExample2">
-                                              <div class="z-depth-0">
+                                            <div class="z-depth-0">
                                                 <div class="" id="headingOne2">
-                                                  <p class="mb-0 text-center">
-                                                      <a href="#" class="btn peach-gradient btn-block" data-toggle="collapse"
+                                                    <p class="mb-0 text-center">
+                                                        <a href="#" class="btn peach-gradient btn-block"
+                                                            data-toggle="collapse"
                                                             data-target="#jury2{{ jury.id }}">Интервью <i
                                                                 class="icofont-ui-video-chat"></i>
                                                         </a>
-                                                  </p>
+                                                    </p>
                                                 </div>
-                                                <div id="jury2{{ jury.id }}" class="collapse" aria-labelledby="headingOne"
-                                                  data-parent="#accordionExample">
-                                                  <div class="embed-responsive embed-responsive-16by9">
+                                                <div id="jury2{{ jury.id }}" class="collapse"
+                                                    aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                    <div class="embed-responsive embed-responsive-16by9">
                                                         {% autoescape off %} {{ jury.interview }} {% endautoescape %}
                                                     </div>
                                                 </div>
-                                              </div>
                                             </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-<!--                            Модальные окна-->
-                            <div class="modal fade" id="jury{{ jury.id }}" tabindex="-1" role="dialog"
-                                aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title w-100" id="myModalLabel">{{ jury.user.first_name }} -
-                                                интервью</h4>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="embed-responsive embed-responsive-16by9">
-                                                {% autoescape off %} {{ jury.interview }} {% endautoescape %}
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn peach-gradient"
-                                                data-dismiss="modal">Закрыть <i class="icofont-ui-close"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -195,17 +175,72 @@
                     <!-- Участники -->
                     <div class="tab-pane fade wow fadeIn" data-wow-duration="3s" id="contact-ex" role="tabpanel"
                         aria-labelledby="contact-tab-ex">
+
+                        {% if award.votes_description %}
+                        {% autoescape off %} {{ award.votes_description }} {% endautoescape %}
+                        {% endif %}
+
+                        <!--                        Форма заявки на участие-->
+                        <div class="accordion" id="accordionExample5">
+                            <div class="z-depth-0">
+                                <div class="" id="headingOne5">
+                                    <p class="mb-0 text-center">
+                                        <a href="#" class="btn peach-gradient btn-block" data-toggle="collapse"
+                                            data-target="#AwardNewParticipant">Подать заявку на участие
+                                        </a>
+                                    </p>
+                                </div>
+                                <div id="AwardNewParticipant" class="collapse" aria-labelledby="headingOne"
+                                    data-parent="#accordionExample">
+
+                                    <div class="card-border p-5">
+                                        <form class="position-relative mt-5" method="post"
+                                            action="{% url 'award_new_participant' %}">
+                                            {% csrf_token %}
+
+                                            <div class="row">
+                                                <div class="md-form col-md-6">
+                                                    <input type="text" required id="materialForm1" name="name"
+                                                        class="form-control">
+                                                    <label for="materialForm1" class="fw-600">Ваше имя</label>
+                                                </div>
+
+                                                <div class="md-form col-md-6">
+                                                    <input type="text" required id="materialForm0" name="company"
+                                                        class="form-control">
+                                                    <label for="materialForm0" class="fw-600">Компания</label>
+                                                </div>
+
+                                                <div class="md-form mt-3 col-md-6">
+                                                    <input type="email" required id="materialForm2" name="email"
+                                                        class="form-control">
+                                                    <label for="materialForm2" class="fw-600">E-mail</label>
+                                                </div>
+
+                                                <div class="md-form mt-3 col-md-6">
+                                                    <input type="number" required name="phone" id="materialForm3"
+                                                        class="form-control">
+                                                    <label for="materialForm3" class="fw-600">Телефон</label>
+                                                </div>
+
+                                                <div class="text-center ">
+                                                    <button class="btn peach-gradient btn-block my-4 ">Отправить <i
+                                                            class="fab fa-telegram-plane"></i></button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         {% include 'includes/award_requests.html' %}
                     </div>
-
                 </div>
             </div>
             <hr>
         </div><!-- Container -->
     </div>
 </section>
-
-
-<!-- Central Modal Small -->
 
 {% endblock %}
