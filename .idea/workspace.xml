@@ -20,19 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b2fc435-27f4-45fe-9a13-3b7cb353fa16" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/migrations/0024_awardinfo_votes_description.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/migrations/0025_awardnewparticipant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloDjango/apps/hhbase/functions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloDjango/apps/main/migrations/0004_telegrambot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloDjango/apps/awards/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloDjango/apps/awards/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloDjango/apps/awards/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloDjango/apps/awards/templates/awards/award.html" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/templates/awards/award.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloDjango/apps/awards/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloDjango/apps/awards/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HelloDjango/apps/awards/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/awards/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloDjango/apps/hhbase/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/hhbase/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloDjango/apps/hhbase/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/hhbase/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloDjango/apps/main/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/main/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloDjango/apps/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/apps/main/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HelloDjango/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloDjango/templates/includes/award_requests.html" beforeDir="false" afterPath="$PROJECT_DIR$/HelloDjango/templates/includes/award_requests.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +65,8 @@
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="consentGiven" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="ignore.virus.scanning.warn.message" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/HelloDjango/apps/hhbase" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -79,12 +77,13 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\DevSpace\Desktop\Алия форум\project\HelloDjango\apps" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DevSpace\Desktop\Алия форум\git\project\HelloDjango\apps\hhbase" />
       <recent name="C:\Users\DevSpace\Desktop\Алия форум\project\HelloDjango\apps\awards" />
       <recent name="C:\Users\DevSpace\Desktop\Алия форум\project\HelloDjango\apps\hhbase" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DevSpace\Desktop\Алия форум\project\HelloDjango\apps" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -123,7 +122,8 @@
       <workItem from="1595864817188" duration="138000" />
       <workItem from="1595930050877" duration="218000" />
       <workItem from="1595930271363" duration="18634000" />
-      <workItem from="1596032096442" duration="5956000" />
+      <workItem from="1596032096442" duration="12522000" />
+      <workItem from="1596048126465" duration="5370000" />
     </task>
     <servers />
   </component>
@@ -199,7 +199,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/HelloDjango/apps/awards/views.py</url>
-          <line>48</line>
+          <line>83</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -208,7 +208,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/HelloDjango/apps/awards/views.py</url>
-          <line>131</line>
+          <line>191</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>

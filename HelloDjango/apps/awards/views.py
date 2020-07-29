@@ -6,6 +6,24 @@ from django.views.generic import View
 
 from .forms import AwardRequestForm, JuryApprovedForm, AwardNewParticipantForm
 from .models import AwardInfo, AwardsIconBlock, Request, NominationJury, Profile
+from ..main.models import TelegramBot
+
+import requests
+
+
+def get_bot():
+    bot = TelegramBot.objects.get(number=1)
+    return bot
+
+
+def get_bot_url(request_mode, bot):
+    url = f'{bot.url}' + f'{request_mode}'
+    return url
+
+
+def get_bot_chat_id(bot):
+    chat_id = bot.chat_id
+    return chat_id
 
 
 class AwardView(View):
@@ -26,6 +44,23 @@ class AwardView(View):
     def post(self, request):
         form = AwardNewParticipantForm(request.POST)
         if form.is_valid():
+            #  Отправляем данные в телеграм
+            bot = get_bot()
+            url = get_bot_url('sendMessage', bot)
+            chat_id = get_bot_chat_id(bot)
+            name = request.POST.get('name')
+            company = request.POST.get('company')
+            phone = request.POST.get('phone')
+            email = request.POST.get('email')
+            text = f'Новая заявка на учатсие в премии ' \
+                   f'\nИмя: {name} ' \
+                   f'\nКомпания: {company} ' \
+                   f'\nТелефон: {phone} ' \
+                   f'\nEmail: {email}'
+            answer = {'chat_id': chat_id, 'text': text}
+            requests.post(url, answer)
+
+            # Сохраняем форму
             form.save()
             return redirect('award')
 
@@ -77,6 +112,31 @@ class AddRequestView(View):
             form = form.save(commit=False)
             form.user = request.user
             form.save()
+
+            award_request = Request.objects.get(user=request.user)
+            #  Отправляем данные в телеграм
+            bot = get_bot()
+            url = get_bot_url('sendMessage', bot)
+            chat_id = bot.chat_id
+            name = request.POST.get('name')
+            company = request.POST.get('company')
+            phone = request.POST.get('phone')
+            email = request.POST.get('email')
+            project_name = request.POST.get('project_name')
+            presentation = f'https://whitebirds.kz/media/{award_request.presentation}'
+            resume = f'https://whitebirds.kz/media/{award_request.resume}'
+            text = f'Новая заявка на голосование ' \
+                   f'\nПользватель: {request.user} ' \
+                   f'\nИмя: {name} ' \
+                   f'\nКомпания: {company} ' \
+                   f'\nТелефон: {phone} ' \
+                   f'\nEmail: {email}' \
+                   f'\nПроект: {project_name}' \
+                   f'\nПрезентация: {presentation}' \
+                   f'\nРезюме заявителя: {resume}'
+            answer = {'chat_id': chat_id, 'text': text}
+            requests.post(url, answer)
+
             return redirect('profile')
 
         else:
@@ -148,6 +208,26 @@ class AddJuryApprovedView(View):
                 vote=request.POST.get('vote'),
                 nomination_jury_id=request.POST.get('nomination_jury'),
             )
+
+            #  Отправляем данные в телеграм
+            bot = get_bot()
+            url = get_bot_url('sendMessage', bot)
+            chat_id = get_bot_chat_id(bot)
+            jury = Profile.objects.get(user=request.user)
+            jury_name = jury.user.first_name
+            project = request.POST.get('project')
+            approved = approved_val
+            recommendation = request.POST.get('recommendation')
+            vote = request.POST.get('vote')
+            text = f'Новая оценка жюри ' \
+                   f'\nИмя жюри: {jury_name} ' \
+                   f'\nПроект: {project} ' \
+                   f'\nДопустить: {approved} ' \
+                   f'\nРекомендация: {recommendation} ' \
+                   f'\nОценка: {vote}'
+            answer = {'chat_id': chat_id, 'text': text}
+            requests.post(url, answer)
+
             return redirect('profile')
 
 

@@ -19,3 +19,18 @@ class MainInfo(models.Model):
     class Meta:
         verbose_name = 'Основная информация о компании'
         verbose_name_plural = 'Основная информация о компании'
+
+
+class TelegramBot(models.Model):
+    """Телеграм бот"""
+    number = models.PositiveSmallIntegerField('Номер бота')
+    purpose = models.CharField('Предназначение', max_length=200)
+    url = models.URLField('URL', help_text='https://api.telegram.org/bot<bot_token>')
+    chat_id = models.CharField('Caht ID', max_length=20)
+
+    def __str__(self):
+        return self.purpose
+
+    class Meta:
+        verbose_name = 'Бот'
+        verbose_name_plural = 'Боты'

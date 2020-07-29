@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from .functions import path_and_rename
 
 
 class Profile(models.Model):
@@ -57,7 +58,7 @@ class HhRequest(models.Model):
     sphere = models.ForeignKey(Sphere, on_delete=models.PROTECT, verbose_name='Сфера')
     experience = models.ForeignKey(Experience, on_delete=models.PROTECT, verbose_name='Опыт работы')
     work_request = models.ForeignKey(WorkRequest, on_delete=models.PROTECT, verbose_name='Запрос')
-    resume = models.FileField('Резюме', upload_to='hhfiles/')
+    resume = models.FileField('Резюме', upload_to=path_and_rename("hhfiles/", 'resume'))
     email = models.EmailField('Email', null=True)
     pub_date = models.DateTimeField('Дата подачи заявки', auto_now_add=True, null=True)
 
