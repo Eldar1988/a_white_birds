@@ -23,6 +23,51 @@ class AwardsIconBlock(models.Model):
         verbose_name_plural = 'Блоки с иконкой (Премия)'
 
 
+class FirstIcons(models.Model):
+    """Блок с иконками в описании Участия"""
+    title = models.CharField('Блок с иконкой - заголовок', max_length=200)
+    description = models.TextField('Блок с иконкой - Описание')
+    icon = models.CharField('Иконка', max_length=200,
+                            help_text='Скопируйте иконку с сайта https://www.icofont.com/icons')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Блок с иконкой - Участие (Премия)'
+        verbose_name_plural = 'Блоки с иконкой - Участие (Премия)'
+
+
+class SecondIcons(models.Model):
+    """Блок с иконками в описании Голосование 1"""
+    title = models.CharField('Блок с иконкой - заголовок', max_length=200)
+    description = models.TextField('Блок с иконкой - Описание')
+    icon = models.CharField('Иконка', max_length=200,
+                            help_text='Скопируйте иконку с сайта https://www.icofont.com/icons')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Блок с иконкой голсование 1 - Участие (Премия)'
+        verbose_name_plural = 'Блоки с иконкой голосование 1 - Участие (Премия)'
+
+
+class ThreeIcons(models.Model):
+    """Блок с иконками в описании Голосование 2"""
+    title = models.CharField('Блок с иконкой - заголовок', max_length=200)
+    description = models.TextField('Блок с иконкой - Описание')
+    icon = models.CharField('Иконка', max_length=200,
+                            help_text='Скопируйте иконку с сайта https://www.icofont.com/icons')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Блок с иконкой голсование 2 - Участие (Премия)'
+        verbose_name_plural = 'Блоки с иконкой голосование 2 - Участие (Премия)'
+
+
 class AwardInfo(models.Model):
     """Информация о премии"""
     award_title = models.CharField('Блок премия - заголовок', max_length=200)
@@ -34,7 +79,8 @@ class AwardInfo(models.Model):
     jury_description = RichTextUploadingField('Блок жюри - описание')
     involvement_title = models.CharField('Блок участие - заголовок', max_length=200)
     involvement_description = RichTextUploadingField('Блок участие - описание')
-    votes_description = RichTextUploadingField('Блок голсование - описание (заголов 3 уровня)', blank=True, null=True)
+    votes_description = RichTextUploadingField('Блок голосование - описание (заголовок 3 уровня)', blank=True, null=True)
+    votes_description_second = RichTextUploadingField('Блок голосование 2 - описание (заголовок 3 уровня)', blank=True, null=True)
 
     def __str__(self):
         return self.award_title

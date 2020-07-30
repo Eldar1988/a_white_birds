@@ -97,9 +97,29 @@
                         </div>
 
                         <!--                        Участие описание-->
-                        <h3 class="text-center mt-5">{{ award.involvement_title }}</h3>
+                        <h3 class="text-center mt-5 pt-5">{{ award.involvement_title }}</h3>
                         <p class="mt-5">{% autoescape off %} {{ award.involvement_description }} {% endautoescape %}</p>
+                        {% if first_icons %}
+                    <div class="row mt-5">
+                    {% for icon in first_icons %}
+                            <div class="col-md-6 col-lg-4">
+                                <div class="icon-card text-center peach-gradient text-white mt-4">
+                                    <div class="icon-in-card icons-4">
+                                        {% autoescape off %} {{ icon.icon }} {% endautoescape %}
+                                        <h5 class="mt-4">
+                                            {{ icon.title }}
+                                        </h5>
+                                        <p class="mt-4">
+                                            {{ icon.description }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
                     </div>
+                    {% endif %}
+                    </div>
+
 
                     <!-- Жюри -->
                     <div class="tab-pane fade wow fadeIn" id="profile-ex" role="tabpanel"
@@ -175,17 +195,62 @@
                     <!-- Участники -->
                     <div class="tab-pane fade wow fadeIn" data-wow-duration="3s" id="contact-ex" role="tabpanel"
                         aria-labelledby="contact-tab-ex">
-
                         {% if award.votes_description %}
                         {% autoescape off %} {{ award.votes_description }} {% endautoescape %}
                         {% endif %}
 
+                        {% if second_icons %}
+                        <div class="row mt-5">
+                        {% for icon in second_icons %}
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="icon-card text-center peach-gradient text-white mt-4">
+                                        <div class="icon-in-card icons-4">
+                                            {% autoescape off %} {{ icon.icon }} {% endautoescape %}
+                                            <h5 class="mt-4">
+                                                {{ icon.title }}
+                                            </h5>
+                                            <p class="mt-4">
+                                                {{ icon.description }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        {% if award.votes_description_second %}
+                        <div class="mt-5 pt-5">
+                        {% autoescape off %} {{ award.votes_description_second }} {% endautoescape %}
+                             </div>
+                        {% endif %}
+
+                        {% if three_icons %}
+                        <div class="row mt-5">
+                        {% for icon in three_icons %}
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="icon-card text-center peach-gradient text-white mt-4">
+                                        <div class="icon-in-card icons-4">
+                                            {% autoescape off %} {{ icon.icon }} {% endautoescape %}
+                                            <h5 class="mt-4">
+                                                {{ icon.title }}
+                                            </h5>
+                                            <p class="mt-4">
+                                                {{ icon.description }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+
                         <!--                        Форма заявки на участие-->
-                        <div class="accordion" id="accordionExample5">
+                        <div class="accordion mt-5" id="accordionExample5">
                             <div class="z-depth-0">
                                 <div class="" id="headingOne5">
                                     <p class="mb-0 text-center">
-                                        <a href="#" class="btn peach-gradient btn-block" data-toggle="collapse"
+                                        <a href="#" class="btn btn-outline-danger btn-block" data-toggle="collapse"
                                             data-target="#AwardNewParticipant">Подать заявку на участие
                                         </a>
                                     </p>

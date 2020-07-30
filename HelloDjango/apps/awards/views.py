@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import View
 
 from .forms import AwardRequestForm, JuryApprovedForm, AwardNewParticipantForm
-from .models import AwardInfo, AwardsIconBlock, Request, NominationJury, Profile
+from .models import AwardInfo, AwardsIconBlock, Request, NominationJury, Profile, FirstIcons, SecondIcons, ThreeIcons
 from ..main.models import TelegramBot
 
 import requests
@@ -31,6 +31,9 @@ class AwardView(View):
     def get(self, request):
         award = AwardInfo.objects.last()
         icon_block = AwardsIconBlock.objects.all()
+        first_icons = FirstIcons.objects.all()
+        second_icons = SecondIcons.objects.all()
+        three_icons = ThreeIcons.objects.all()
         jurys = Profile.objects.filter(jury=True)
         form = AwardNewParticipantForm
 
@@ -39,6 +42,9 @@ class AwardView(View):
             'icon_block': icon_block,
             'jurys': jurys,
             'form': form,
+            'first_icons': first_icons,
+            'second_icons': second_icons,
+            'three_icons': three_icons,
             })
 
     def post(self, request):

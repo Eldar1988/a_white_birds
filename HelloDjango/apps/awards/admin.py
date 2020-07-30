@@ -7,7 +7,7 @@ from .models import \
     Nomination, \
     NominationJury, \
     Vote, \
-    Request, JuryApproved, Profile, AwardPartner, AwardNewParticipant
+    Request, JuryApproved, Profile, AwardPartner, AwardNewParticipant, FirstIcons, SecondIcons, ThreeIcons
 
 
 @admin.register(AwardInfo)
@@ -22,6 +22,27 @@ class VoteAdmin(admin.ModelAdmin):
 
 @admin.register(AwardsIconBlock)
 class AwardsIconBlockAdmin(admin.ModelAdmin):
+    list_display = ('title', 'icon')
+    list_editable = ('icon',)
+    save_as = True
+
+
+@admin.register(FirstIcons)
+class FirstIconsAdmin(admin.ModelAdmin):
+    list_display = ('title', 'icon')
+    list_editable = ('icon',)
+    save_as = True
+
+
+@admin.register(ThreeIcons)
+class ThreeIconsAdmin(admin.ModelAdmin):
+    list_display = ('title', 'icon')
+    list_editable = ('icon',)
+    save_as = True
+
+
+@admin.register(SecondIcons)
+class SecondIconsAdmin(admin.ModelAdmin):
     list_display = ('title', 'icon')
     list_editable = ('icon',)
     save_as = True
