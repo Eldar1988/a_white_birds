@@ -1,0 +1,314 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ forum_info.title }} {{ block.super }}
+{% endblock %}
+
+{% block description %}
+{{ forum_info.forum_description }}
+{% endblock %}
+
+{% block content %}
+
+<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+            <div class="view ">
+                <img class="d-block w-100 " src="{{ forum_info.image.url }}" alt="First slide"
+                    style="max-height: 70vh; object-fit: cover; object-position: top;">
+                <div class="mask rgba-black-light pattern-6"></div>
+            </div>
+            <div class="carousel-caption  p-6">
+                <h2 class="text-uppercase">{{ forum_info.title }}</h2>
+                <p>{{ forum_info.sub_title }}</p>
+            </div>
+        </div>
+    </div>
+    <!--/.Slides-->
+</div>
+
+<div class="container mt-5">
+    <h3 class="h3-responsive text-center pt-5">{{ forum_info.forum_description_title }}</h3>
+    <div>
+        {% autoescape off %}
+            {{ forum_info.forum_description }}
+        {% endautoescape %}
+    </div>
+    <div class="row mt-5">
+
+        {% for i in info_block %}
+
+        <div class="col-md-6 col-lg-4">
+            <div class="icon-card text-center border border-danger mt-4">
+                <div class="icon-in-card icons-4">
+                    <img src="{{ i.image.url }}" alt="" style="max-width: 100%;">
+                    <h5 class="mt-4 h5-responsive">{{ i.title }}</h5>
+                    <p class="mt-4">{{ i.description }}</p>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+    <hr>
+    <div class="mt-5 pt-5">
+        <h3 class="text-center mt-5 pt-5 h3-responsive">Программа форума</h3>
+    </div>
+
+    <div class="mt-5 my-tabs content-block">
+
+        {#        Табы навигация#}
+        <ul class="nav nav-tabs md-tabs fw-400" id="myTabEx" role="tablist">
+            <li class="nav-item fw-400 waves-effect waves-light">
+                <a class="nav-link active show fw-400" id="home-tab-ex" data-toggle="tab" href="#home-ex" role="tab"
+                    aria-controls="home-ex" aria-selected="true">Форум 2019</a>
+            </li>
+            <li class="nav-item waves-effect waves-light">
+                <a class="nav-link" id="contact-tab-ex" data-toggle="tab" href="#contact-ex" role="tab"
+                    aria-controls="contact-ex" aria-selected="false">Форум 2020</a>
+            </li>
+        </ul>
+
+    {#        Табы контент#}
+        <div class="tab-content" id="myTabExContent">
+            {#        2019#}
+            <div class="tab-pane fade show active" id="home-ex" role="tabpanel" aria-labelledby="home-tab-ex">
+                <h3 class="text-center mt-5"></h3>
+                <div class="accordion" id="accordionExample">
+
+                    {#            1 стол#}
+                    <div class="card z-depth-0">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-block text-center font-weight-bold text-uppercase" type="button"
+                                        data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                        1 стол
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div class="">
+                                        <h3 class="text-center mt-3 mb-4 h3-responsive font-weight-bold">Фасилитатор</h3>
+                                        {% if first_table_facilitator.count %}
+                                            {% for i in first_table_facilitator %}
+                                                {% include 'forum/includes/facilitator.html' %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row mt-5 jury mb-3">
+                                    <div class="col-12">
+                                        <h3 class="text-center mt-3 h3-responsive">Спикеры</h3>
+                                    </div>
+                                    {% if first_table_participants.count %}
+                                        {% for i in first_table_participants %}
+                                        {% include 'forum/includes/partisipants.html' %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                    {#            2 стол#}
+                    <div class="card z-depth-0 mt-3">
+                        <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn collapsed text-center btn-block text-uppercase font-weight-bold"
+                                    type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">
+                                    2 стол
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body">
+                                    <div class="">
+                                        <h3 class="text-center mt-3 mb-4 h3-responsive font-weight-bold">Фасилитатор</h3>
+                                        {% if second_table_facilitator.count %}
+                                            {% for i in second_table_facilitator %}
+                                                {% include 'forum/includes/facilitator.html' %}
+                                            {% endfor %}
+                                        {% endif %}
+                                </div>
+                                <hr>
+                                <div class="row mt-5 jury mb-3">
+                                    <div class="col-12">
+                                        <h3 class="text-center mt-3 h3-responsive font-weight-bold">Спикеры</h3>
+                                    </div>
+                                    {% if second_table_participants.count %}
+                                        {% for i in second_table_participants %}
+                                        {% include 'forum/includes/partisipants.html' %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {#            3 стол#}
+                    <div class="card z-depth-0 mt-3">
+                        <div class="card-header" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn btn-block text-uppercase font-weight-bold collapsed" type="button"
+                                    data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">
+                                    3 стол
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div class="card-body">
+                                    <div class="">
+                                        <h3 class="text-center mt-3 mb-4 h3-responsive font-weight-bold">Фасилитатор</h3>
+                                        {% if third_table_facilitator.count %}
+                                            {% for i in third_table_facilitator %}
+                                                {% include 'forum/includes/facilitator.html' %}
+                                            {% endfor %}
+                                        {% endif %}
+                                </div>
+                                <hr>
+                                <div class="row mt-5 jury mb-3">
+                                    <div class="col-12">
+                                        <h3 class="text-center mt-3 h3-responsive font-weight-bold">Спикеры</h3>
+                                    </div>
+                                    {% if third_table_participants.count %}
+                                        {% for i in third_table_participants %}
+                                        {% include 'forum/includes/partisipants.html' %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {#            4 стол #}
+                    <div class="card z-depth-0 mt-3">
+                        <div class="card-header" id="headingThree1">
+                            <h5 class="mb-0">
+                                <button class="btn btn-block text-uppercase font-weight-bold collapsed" type="button"
+                                    data-toggle="collapse" data-target="#collapseThree1" aria-expanded="false"
+                                    aria-controls="collapseThree1">
+                                    4 стол
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree1" class="collapse" aria-labelledby="headingThree1"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                    <div class="">
+                                        <h3 class="text-center mt-3 mb-4 h3-responsive font-weight-bold">Фасилитатор</h3>
+                                        {% if fourth_table_facilitator.count %}
+                                            {% for i in fourth_table_facilitator %}
+                                                {% include 'forum/includes/facilitator.html' %}
+                                            {% endfor %}
+                                        {% endif %}
+                                </div>
+                                <hr>
+                                <div class="row mt-5 jury mb-3">
+                                    <div class="col-12">
+                                        <h3 class="text-center mt-3 h3-responsive font-weight-bold">Спикеры</h3>
+                                    </div>
+                                    {% if fourth_table_participants.count %}
+                                        {% for i in fourth_table_participants %}
+                                        {% include 'forum/includes/partisipants.html' %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <section id="partners" class="mt-5">
+        <div class="container pt-5">
+            <h3 class="text-center">Партнеры форума</h3>
+            <div class="partners-slider mt-5" style="height: 150px;">
+
+                {% for partner in forum_partners %}
+                <div class="slider-item text-center">
+                    <a href="{% if partner.url %} {{ partner.url }} {% else %} {% endif %}" target="_blank">
+                        <img src="{{ partner.image.url }}" alt="{{ partner.name }}" style="max-width: 100%; margin: auto;">
+                    </a>
+                    <a href="{% if partner.url %} {{ partner.url }} {% else %} {% endif %}" target="_blank">
+                        <p class="text-center fw-600 mt-3">{{ partner.name }}</p>
+                    </a>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+            </div>
+            {#        2020#}
+            <div class="tab-pane fade" id="contact-ex" role="tabpanel" aria-labelledby="contact-tab-ex">
+                {% if forum_info.forum_2020 %}
+                    <img src="{{ forum_info.forum_2020.url }}" style="width: 100%;">
+                {% endif %}
+                <div class="accordion mt-5" id="accordionExample5">
+                            <div class="z-depth-0">
+                                <div class="" id="headingOne5">
+                                    <p class="mb-0 text-center">
+                                        <a href="#" class="btn btn-outline-danger btn-block" data-toggle="collapse"
+                                            data-target="#AwardNewParticipant">Подать заявку на участие в форуме
+                                        </a>
+                                    </p>
+                                </div>
+                                <div id="AwardNewParticipant" class="collapse" aria-labelledby="headingOne"
+                                    data-parent="#accordionExample">
+
+                                    <div class="card-border p-5">
+                                        <form class="position-relative mt-5" method="post"
+                                            action="{% url 'forum_new_participant' %}">
+                                            {% csrf_token %}
+
+                                            <div class="row">
+                                                <div class="md-form col-md-6">
+                                                    <input type="text" required id="materialForm1" name="name"
+                                                        class="form-control">
+                                                    <label for="materialForm1" class="fw-600">Ваше имя</label>
+                                                </div>
+
+                                                <div class="md-form col-md-6">
+                                                    <input type="text" required id="materialForm0" name="company"
+                                                        class="form-control">
+                                                    <label for="materialForm0" class="fw-600">Компания</label>
+                                                </div>
+
+                                                <div class="md-form mt-3 col-md-6">
+                                                    <input type="email" required id="materialForm2" name="email"
+                                                        class="form-control">
+                                                    <label for="materialForm2" class="fw-600">E-mail</label>
+                                                </div>
+
+                                                <div class="md-form mt-3 col-md-6">
+                                                    <input type="number" required name="phone" id="materialForm3"
+                                                        class="form-control">
+                                                    <label for="materialForm3" class="fw-600">Телефон</label>
+                                                </div>
+
+                                                <div class="text-center ">
+                                                    <button class="btn peach-gradient btn-block my-4 ">Отправить <i
+                                                            class="fab fa-telegram-plane"></i></button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

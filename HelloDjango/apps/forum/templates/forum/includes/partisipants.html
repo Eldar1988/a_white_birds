@@ -1,0 +1,34 @@
+{% load static %}
+
+<div class="col-md-6">
+                                <div class="card mt-4">
+                                    <div class="view overlay">
+                                        <img class="card-img-top lazy forum-partisipant-avatar" src="{% static 'assets/img/mini_bird.png' %}" data-src="{{ i.avatar.url }}" alt="{{ i.name }}">
+                                        <a href="#!">
+                                            <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                                        </a>
+                                    </div>
+                                    <div class="p-3">
+                                        <h4 class="card-title text-center h4-responsive font-weight-bold">{{ i.name }}</h4>
+                                        <h5 class="pb-3 text-center h5-responsive">{{ i.company }}</h5>
+                                        <div class="accordion" id="accordionExample">
+                                            <div class="z-depth-0 card-border p-3 text-center">
+                                                <i class="icofont-clock-time"></i> {{ i.speaking_time }}
+                                            </div>
+                                        </div>
+
+                                            <div class="z-depth-0">
+                                                    <p class="mb-0 text-center">
+                                                        {% if request.user.is_authenticated %}
+                                                            <a href="{{ i.presentation.url }}" class="btn peach-gradient btn-block waves-effect waves-light" target="_blank">Презентация <i class="icofont-presentation"></i>
+                                                            </a>
+                                                        {% else %}
+                                                            <div class="alert alert-danger text-center mt-3" role="alert">
+                                                              Презентация доступна только зарегистрированным пользователям
+                                                            </div>
+                                                        {% endif %}
+                                                    </p>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>

@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'apps.awards',
     'apps.main',
     'apps.hhbase',
+    'apps.forum',
 ]
 
 MIDDLEWARE = [

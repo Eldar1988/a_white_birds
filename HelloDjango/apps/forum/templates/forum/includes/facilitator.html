@@ -1,0 +1,21 @@
+{% load static %}
+
+<div id="carousel-example-2" class="carousel slide carousel-fade shadow-lg"
+                                    data-ride="carousel">
+                                    <!--Slides-->
+                                    <div class="carousel-inner" role="listbox"
+                                        style="border-radius: 8px; overflow: hidden;">
+                                        <div class="view ">
+                                            <img class="d-block w-100 lazy facilitator-img" src="{% static 'assets/img/mini_bird.png' %}" data-src="{{ i.avatar.url }}"
+                                                alt="First slide"
+                                                >
+                                            <div class="mask rgba-black-light"></div>
+                                        </div>
+                                        <div class="carousel-caption p-6 facilitator-caption">
+                                            <h3 class="h3-responsive text-uppercase">{{ i.name }}</h3>
+                                            <p>{{ i.company }}</p>
+                                            <img src="{{ i.company_logo.url }}" alt="" style="max-width: 100%;">
+                                        </div>
+                                    </div>
+                                <!--/.Slides-->
+                            </div>

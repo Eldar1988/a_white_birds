@@ -26,6 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('award/', include('apps.awards.urls')),
     path('hh/', include('apps.hhbase.urls')),
+    path('forum/', include('apps.forum.urls')),
     path('', include('apps.main.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),

@@ -101,6 +101,10 @@
                         <a class="nav-link mob-style-nav" href="{% url 'award' %}"><i class="icofont-award"></i>
                             Премия</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link mob-style-nav" href="{% url 'forum' %}"><i class="icofont-megaphone"></i>
+                             Форум ARIF</a>
+                    </li>
 
                     {% if request.user.is_authenticated and request.user.is_staff %}
 
@@ -170,12 +174,12 @@
     <section id="partners" class="mt-5">
         <div class="container">
             <h3 class="text-center">Наши партнеры</h3>
-            <div id="partners-slider" class="mt-5"  style="height: 400px;">
+            <div class="mt-5 partners-slider"  style="height: 400px;">
 
                 {% for partner in partnerstg %}
                 <div class="slider-item">
                     <a href="{{ partner.url }}" target="_blank" title="Перейти на сайт партнера">
-                        <img src="{{ partner.logo.url }}" alt="" style="max-width: 100%;">
+                        <img src="{{ partner.logo.url }}" alt="" style="max-width: 100%; margin: auto;">
                     </a>
                     <a href="{{ partner.url }}" target="_blank" title="Перейти на сайт партнера">
                         <p class="text-center fw-600 mt-3">{{ partner.name }}</p>

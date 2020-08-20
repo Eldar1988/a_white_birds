@@ -72,6 +72,10 @@ fw-600 {
   font-weight: 600;
 }
 
+.card-header {
+  border-bottom: none;
+}
+
 .breadcrumb {
   background-color: inherit;
   -webkit-box-pack: center;
@@ -307,6 +311,20 @@ html.is-animating .transition-fade {
   overflow-y: hidden;
 }
 
+.facilitator-img {
+  max-height: 60vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.facilitator-caption {
+  bottom: 3%;
+  right: 0;
+  width: 100%;
+}
+
 @media screen and (max-width: 991px) {
   .mobile-nav-icon {
     position: fixed;
@@ -357,6 +375,19 @@ html.is-animating .transition-fade {
   }
   .content-block {
     padding: 50px 10px;
+  }
+  .facilitator-img {
+    max-height: 80vh;
+    min-height: 50vh;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+  }
+  .facilitator-caption {
+    bottom: -3%;
+    right: 0;
+    width: 100%;
   }
 }
 /*# sourceMappingURL=main.css.map */

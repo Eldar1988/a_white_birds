@@ -59,7 +59,8 @@ fw-400
     font-weight: 400
 fw-600
     font-weight: 600
-
+.card-header
+    border-bottom: none
 .breadcrumb
     background-color: inherit
     justify-content: center
@@ -229,6 +230,15 @@ html.is-animating .transition-fade
     overflow-x: hidden
     overflow-y: hidden
 
+.facilitator-img
+    max-height: 60vh
+    object-fit: cover
+    object-position: center
+
+.facilitator-caption
+    bottom: 3%
+    right: 0
+    width: 100%
 
 
 @media screen and ( max-width: 991px )
@@ -277,3 +287,14 @@ html.is-animating .transition-fade
 
     .content-block
         padding: 50px 10px
+    
+    .facilitator-img
+        max-height: 80vh
+        min-height: 50vh
+        object-fit: cover
+        object-position: center
+
+    .facilitator-caption
+        bottom: -3%
+        right: 0
+        width: 100%

@@ -21,7 +21,7 @@ function GetRating(x) {
 Partners Slider
  */
 $(document).ready(function() {
-    $('#partners-slider').slick({
+    $('.partners-slider').slick({
         dots: true,
         infinite: false,
         speed: 300,
