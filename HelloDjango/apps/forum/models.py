@@ -53,6 +53,7 @@ class ForumInfo(models.Model):
     forum_description_title = models.CharField('Заголовок блока с описанием', max_length=255)
     forum_description = RichTextUploadingField('Описание форума')
     info_blocks = models.ManyToManyField(InfoBlock, verbose_name='Блоки с информацией',)
+    forum_2020_text = RichTextUploadingField('Текст (заглушка для форума 202)', blank=True)
     forum_2020 = models.ImageField('Заглушка для форума 2020', upload_to=path_and_rename("forum/", 'image'), null=True)
 
     def __str__(self):
@@ -76,7 +77,7 @@ class Facilitator(models.Model):
 
     class Meta:
         verbose_name = 'Фасилитатор'
-        verbose_name_plural = 'Фасилитаторы'
+        verbose_name_plural = 'Фасилитаторы 2019'
 
 
 class ForumParticipant(models.Model):
@@ -92,8 +93,41 @@ class ForumParticipant(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Учатсник'
-        verbose_name_plural = 'Участники'
+        verbose_name = 'Спикер'
+        verbose_name_plural = 'Спикеры 2019'
+
+
+class Facilitator2020(models.Model):
+    """Фасилитаторы 2020 """
+    table = models.PositiveSmallIntegerField('Номер стола')
+    name = models.CharField('Имя фасилитатора', max_length=255)
+    company = models.CharField('Компания', max_length=255)
+    company_logo = models.ImageField('Логотип компании', upload_to=path_and_rename("forum/", 'image'), null=True)
+    avatar = models.ImageField('Фотография', upload_to=path_and_rename("forum/", 'image'))
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Фасилитатор'
+        verbose_name_plural = 'Фасилитаторы 2020'
+
+
+class ForumParticipant2020(models.Model):
+    """Участник форума 2020"""
+    table = models.PositiveSmallIntegerField('Номер стола')
+    speaking_time = models.CharField('Время выступления', max_length=255)
+    name = models.CharField('Имя участника', max_length=255)
+    company = models.CharField('Компания', max_length=255)
+    avatar = models.ImageField('Фотография', upload_to=path_and_rename("forum/", 'image'))
+    presentation = models.FileField('Презентация', upload_to=path_and_rename("forum/", 'presentation'))
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Спикер'
+        verbose_name_plural = 'Спикеры 2020'
 
 
 class ForumNewParticipant(models.Model):

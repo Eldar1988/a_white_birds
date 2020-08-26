@@ -132,7 +132,9 @@
       <workItem from="1597797727101" duration="454000" />
       <workItem from="1597798188218" duration="499000" />
       <workItem from="1597801785013" duration="19670000" />
-      <workItem from="1597894902691" duration="12613000" />
+      <workItem from="1597894902691" duration="13396000" />
+      <workItem from="1597928016839" duration="71000" />
+      <workItem from="1598462870351" duration="1606000" />
     </task>
     <servers />
   </component>
@@ -171,11 +173,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="565" y="244" key="EditFileWatcherDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595436903216" />
-    <state x="796" y="388" key="FileChooserDialogImpl" timestamp="1597798185820">
+    <state x="796" y="388" key="FileChooserDialogImpl" timestamp="1597928090641">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="796" y="348" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595939160996" />
-    <state x="796" y="388" key="FileChooserDialogImpl/0.40.1920.1040/1920.40.1920.1040@0.40.1920.1040" timestamp="1597798185820" />
+    <state x="796" y="388" key="FileChooserDialogImpl/0.40.1920.1040/1920.40.1920.1040@0.40.1920.1040" timestamp="1597928090641" />
     <state x="735" y="207" width="1788" height="893" key="SettingsEditor" timestamp="1597813558806">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
@@ -229,7 +231,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="django-line">
           <url>file://$PROJECT_DIR$/HelloDjango/apps/forum/templates/forum/forum.html</url>
-          <line>250</line>
+          <line>305</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="django-line">

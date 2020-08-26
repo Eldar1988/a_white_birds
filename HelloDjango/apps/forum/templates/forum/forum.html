@@ -248,6 +248,61 @@
             </div>
             {#        2020#}
             <div class="tab-pane fade" id="contact-ex" role="tabpanel" aria-labelledby="contact-tab-ex">
+                        <div class="accordion mt-5" id="accordionExample6">
+                            <div class="z-depth-0">
+                                <div class="" id="headingOne5">
+                                    <p class="mb-0 text-center">
+                                        <a href="#" class="btn btn-outline-danger btn-block" data-toggle="collapse"
+                                            data-target="#AwardNewParticipant">Подать заявку на участие в форуме
+                                        </a>
+                                    </p>
+                                </div>
+                                <div id="AwardNewParticipant" class="collapse" aria-labelledby="headingOne"
+                                    data-parent="#accordionExample6">
+
+                                    <div class="card-border p-5">
+                                        <form class="position-relative mt-5" method="post"
+                                            action="{% url 'forum_new_participant' %}">
+                                            {% csrf_token %}
+
+                                            <div class="row">
+                                                <div class="md-form col-md-6">
+                                                    <input type="text" required id="materialForm1" name="name"
+                                                        class="form-control">
+                                                    <label for="materialForm1" class="fw-600">Ваше имя</label>
+                                                </div>
+
+                                                <div class="md-form col-md-6">
+                                                    <input type="text" required id="materialForm0" name="company"
+                                                        class="form-control">
+                                                    <label for="materialForm0" class="fw-600">Компания</label>
+                                                </div>
+
+                                                <div class="md-form mt-3 col-md-6">
+                                                    <input type="email" required id="materialForm2" name="email"
+                                                        class="form-control">
+                                                    <label for="materialForm2" class="fw-600">E-mail</label>
+                                                </div>
+
+                                                <div class="md-form mt-3 col-md-6">
+                                                    <input type="number" required name="phone" id="materialForm3"
+                                                        class="form-control">
+                                                    <label for="materialForm3" class="fw-600">Телефон</label>
+                                                </div>
+
+                                                <div class="text-center ">
+                                                    <button class="btn peach-gradient btn-block my-4 ">Отправить <i
+                                                            class="fab fa-telegram-plane"></i></button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-5 pb-5">
+                            {% autoescape off %} {{ forum_info.forum_2020_text }} {% endautoescape %}
+                        </div>
                 {% if forum_info.forum_2020 %}
                     <img src="{{ forum_info.forum_2020.url }}" style="width: 100%;">
                 {% endif %}
