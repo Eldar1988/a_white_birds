@@ -40,8 +40,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -78,14 +78,15 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Eldar\Documents\GitHub\a_white_birds\HelloDjango\apps" />
-      <recent name="C:\Users\DevSpace\Desktop\Алия форум\project\HelloDjango\apps" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\DevSpace\Desktop\Алия форум\git\project\HelloDjango\apps\hhbase" />
       <recent name="C:\Users\DevSpace\Desktop\Алия форум\project\HelloDjango\apps\awards" />
       <recent name="C:\Users\DevSpace\Desktop\Алия форум\project\HelloDjango\apps\hhbase" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Eldar\Documents\GitHub\a_white_birds\HelloDjango\apps" />
+      <recent name="C:\Users\Eldar\Documents\GitHub\a_white_birds\HelloDjango\service\templates\service" />
+      <recent name="C:\Users\DevSpace\Desktop\Алия форум\project\HelloDjango\apps" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -135,6 +136,7 @@
       <workItem from="1597894902691" duration="13396000" />
       <workItem from="1597928016839" duration="71000" />
       <workItem from="1598462870351" duration="1606000" />
+      <workItem from="1599010385481" duration="34212000" />
     </task>
     <servers />
   </component>

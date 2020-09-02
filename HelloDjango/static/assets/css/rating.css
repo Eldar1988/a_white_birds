@@ -85,7 +85,9 @@ bottom: .5em;
 	top: 10px;
 	right: 10px;
 }
-
+.md-form label {
+	left: 15px;
+}
 
 
 

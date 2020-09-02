@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ info.title }} | {{ block.super }}
+{% endblock %}
+
+{% block description %}
+{{ seo }}
+{% endblock %}
+
+{% block content %}
+
+<!-- Хлебный крошки  -заголовок -->
+<section id="birds-bg" class="breadcump" style="height: 30vh;">
+    <div class="">
+        <div class="content">
+            <h2 class="page-header text-center">
+                {{ award.award_title }}
+            </h2>
+            <nav aria-label="breadcrumb text-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Главная</a></li>
+                    <li class="breadcrumb-item active">О нас</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+
+    <!-- Start Content -->
+<section class="content-start mb-5">
+    <div class="container">
+        <div class="content-block mt-5">
+
+            <h2 class="h2-responsive text-center">{{ info.title }}</h2>
+            <div class="mt-5">
+                {% autoescape off %} {{ info.text }} {% endautoescape %}
+            </div>
+        
+            <div class="row mt-5">
+                {% for i in blocks %}
+                    <div class="col-md-4 pt-3">
+                        <div class="shadow-sm overflow-hidden text-center p-3 grp-border-radius h-100 ">
+                            <img src="{{ i.image.url }}" alt="" style="max-width: 100%;">
+
+                        <h4 class="h4-responsive mt-3">{{ i.title }}</h4>
+                        <p class="">{{ i.text }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <hr class="mt-5">
+            <div class="mt-5 text-center">
+                <img src="{{ info.image.url }}" alt="" style="max-width: 50%; margin: auto;">
+                <h5 class="h5-responsive">{% autoescape off %}{{ info.photo_text }} {% endautoescape %}</h5>
+            </div>
+        </div><!-- Container -->
+    </div>
+</section>
+
+{% endblock %}

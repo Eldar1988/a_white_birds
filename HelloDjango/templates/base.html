@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %} White Birds - Risk & leadership {% endblock %}</title>
+    <meta name="description" content="{% block description %} {% endblock %}">
     <!--Favicon -->
     <link rel="icon" href="{% static 'assets/img/favicon.ico' %}" type="image/x-icon">
     <!-- Icons -->
@@ -93,17 +94,26 @@
             </button>
             <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent-333">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+                    <li class="nav-item mr-3">
                         <a class="nav-link mob-style-nav" href="/"><i class="icofont-home"></i> Главная
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mr-3">
+                        <a class="nav-link mob-style-nav" href="{% url 'service_list' %}"><i class="icofont-handshake-deal"></i> Услуги
+                        </a>
+                    </li>
+                    <li class="nav-item mr-3">
                         <a class="nav-link mob-style-nav" href="{% url 'award' %}"><i class="icofont-award"></i>
                             Премия</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mr-3">
                         <a class="nav-link mob-style-nav" href="{% url 'forum' %}"><i class="icofont-megaphone"></i>
                              Форум ARIF</a>
+                    </li>
+
+                    <li class="nav-item mr-3">
+                        <a class="nav-link mob-style-nav" href="{% url 'about_us' %}"><i class="icofont-birds"></i>
+                             О нас</a>
                     </li>
 
                     {% if request.user.is_authenticated and request.user.is_staff %}
@@ -114,7 +124,7 @@
 
                     {% endif %}
 
-                    <li class="nav-item">
+                    <li class="nav-item mr-3">
                         <a class="nav-link mob-style-nav" href="#"><i class="icofont-google-map"></i> Контакты</a>
                     </li>
 
@@ -173,7 +183,7 @@
     </main>
     <section id="partners" class="mt-5">
         <div class="container">
-            <h3 class="text-center">Наши партнеры</h3>
+            <h3 class="text-center h3-responsive">Наши партнеры</h3>
             <div class="mt-5 partners-slider"  style="height: 400px;">
 
                 {% for partner in partnerstg %}
