@@ -10,3 +10,12 @@ class MainInfoView(View):
         return render(request, 'main/index.html', {
             'main': main
         })
+
+
+class ContactView(View):
+    def get(self, request):
+        contact = MainInfo.objects.last()
+
+        return render(request, 'main/contacts.html', {
+            'contact': contact,
+        })

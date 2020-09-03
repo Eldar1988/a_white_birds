@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Контакты | {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+<!-- Хлебный крошки  -заголовок -->
+<section id="birds-bg" class="breadcump" style="height: 30vh;">
+    <div class="">
+        <div class="content">
+            <h2 class="page-header text-center">
+                Контакты
+            </h2>
+            <nav aria-label="breadcrumb text-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Главная</a></li>
+                    <li class="breadcrumb-item active">Контакты</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="content-start mb-5">
+    <div class="container">
+        <div class="content-block mt-5">
+
+            <h2 class="h2-responsive text-center">Наши контакты</h2>
+
+            <div class="row mt-5 ">
+                <div class="col-md-6 p-4">
+                    <div class="shadow-sm position-relative p-3 pt-4 pb-4">
+                        <i class="icofont-phone icon-absolute"></i>
+                        <a href="tel:+77012227889" class="font-weight-bold">Телефон: +7 701 222 7889</a>
+                    </div>
+                    <div class="shadow-sm position-relative p-3 pt-4 pb-4 mt-5">
+                        <i class="icofont-email icon-absolute"></i>
+                        <a href="mailto:info@whitebirds.kz" class="font-weight-bold">Email: info@whitebirds.kz</a>
+                    </div>
+                    <div class="shadow-sm position-relative p-3 pt-4 pb-4 mt-5">
+                        <i class="icofont-google-map icon-absolute"></i>
+                        <a href="https://www.google.ru/maps/place/IQ+coworking/@51.1288312,71.4208652,17z/data=!3m1!4b1!4m8!3m7!1s0x4245869ffc000001:0x6cc9d3ddbc6289ba!5m2!4m1!1i2!8m2!3d51.1288279!4d71.4230539" target="_blank" class="font-weight-bold">Адрес: Астана, ул. Достык 5, IQ Coworking</a>
+                    </div>
+                </div>
+                <div class="col-md-6 p-4">
+                    <div class="shadow-sm position-relative p-3 pt-4 pb-4">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2503.8957336924855!2d71.4208652159146!3d51.12883124613212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4245869ffc000001%3A0x6cc9d3ddbc6289ba!2sIQ%20coworking!5e0!3m2!1sru!2skz!4v1599161773232!5m2!1sru!2skz" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-5">
+
+        </div><!-- Container -->
+    </div>
+</section>
+
+
+{% endblock %}
