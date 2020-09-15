@@ -57,7 +57,7 @@
         <div class="mt-5 pt-5">
             <h3 class="text-center mt-5 pt-5 h3-responsive">Программа форума</h3>
         </div>
-        <div class="mt-5 my-tabs content-block">
+        <div class="mt-5 my-tabs content-block" style="font-size: 13px;">
             {#        Табы навигация#}
             <ul class="nav nav-tabs md-tabs fw-400" id="myTabEx" role="tablist">
                 <li class="nav-item fw-400 waves-effect waves-light">
@@ -90,9 +90,9 @@
                             </div>
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                  data-parent="#accordionExample">
-                                <div class="card-body">
+                                <div class="">
                                     <div class="">
-                                        <h3 class="text-center mt-3 mb-4 h3-responsive font-weight-bold">
+                                        <h3 class="text-center mt-4 mb-4 h3-responsive font-weight-bold text-uppercase">
                                             Фасилитатор</h3>
                                         {% if first_table_facilitator.count %}
                                             {% for i in first_table_facilitator %}
@@ -101,10 +101,9 @@
                                         {% endif %}
                                     </div>
                                 </div>
-                                <hr>
-                                <div class="row mt-5 jury mb-3">
+                                <div class="row mt-5 jury mb-3 pt-3">
                                     <div class="col-12">
-                                        <h3 class="text-center mt-3 h3-responsive">Спикеры</h3>
+                                        <h3 class="text-center h3-responsive text-uppercase">Спикеры</h3>
                                     </div>
                                     {% if first_table_participants.count %}
                                         {% for i in first_table_participants %}
@@ -128,9 +127,9 @@
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                  data-parent="#accordionExample">
-                                <div class="card-body">
+                                <div class="">
                                     <div class="">
-                                        <h3 class="text-center mt-3 mb-4 h3-responsive font-weight-bold">
+                                        <h3 class="text-center mt-4 mb-4 h3-responsive font-weight-bold text-uppercase">
                                             Фасилитатор</h3>
                                         {% if second_table_facilitator.count %}
                                             {% for i in second_table_facilitator %}
@@ -139,9 +138,9 @@
                                         {% endif %}
                                     </div>
                                     <hr>
-                                    <div class="row mt-5 jury mb-3">
+                                    <div class="row mt-5 jury pt-3 mb-3">
                                         <div class="col-12">
-                                            <h3 class="text-center mt-3 h3-responsive font-weight-bold">Спикеры</h3>
+                                            <h3 class="text-center mt-3 h3-responsive font-weight-bold text-uppercase">Спикеры</h3>
                                         </div>
                                         {% if second_table_participants.count %}
                                             {% for i in second_table_participants %}
@@ -166,9 +165,9 @@
                             </div>
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                                  data-parent="#accordionExample">
-                                <div class="card-body">
+                                <div class="">
                                     <div class="">
-                                        <h3 class="text-center mt-3 mb-4 h3-responsive font-weight-bold">
+                                        <h3 class="text-center mt-4 mb-4 h3-responsive font-weight-bold text-uppercase">
                                             Фасилитатор</h3>
                                         {% if third_table_facilitator.count %}
                                             {% for i in third_table_facilitator %}
@@ -177,9 +176,9 @@
                                         {% endif %}
                                     </div>
                                     <hr>
-                                    <div class="row mt-5 jury mb-3">
+                                    <div class="row mt-5 jury mb-3 pt-3">
                                         <div class="col-12">
-                                            <h3 class="text-center mt-3 h3-responsive font-weight-bold">Спикеры</h3>
+                                            <h3 class="text-center mt-3 h3-responsive font-weight-bold text-uppercase">Спикеры</h3>
                                         </div>
                                         {% if third_table_participants.count %}
                                             {% for i in third_table_participants %}
@@ -204,9 +203,9 @@
                             </div>
                             <div id="collapseThree1" class="collapse" aria-labelledby="headingThree1"
                                  data-parent="#accordionExample">
-                                <div class="card-body">
+                                <div class="">
                                     <div class="">
-                                        <h3 class="text-center mt-3 mb-4 h3-responsive font-weight-bold">
+                                        <h3 class="text-center mt-4 mb-4 h3-responsive font-weight-bold text-uppercase">
                                             Фасилитатор</h3>
                                         {% if fourth_table_facilitator.count %}
                                             {% for i in fourth_table_facilitator %}
@@ -215,9 +214,9 @@
                                         {% endif %}
                                     </div>
                                     <hr>
-                                    <div class="row mt-5 jury mb-3">
+                                    <div class="row mt-5 jury mb-3 pt-3">
                                         <div class="col-12">
-                                            <h3 class="text-center mt-3 h3-responsive font-weight-bold">Спикеры</h3>
+                                            <h3 class="text-center mt-3 h3-responsive font-weight-bold text-uppercase">Спикеры</h3>
                                         </div>
                                         {% if fourth_table_participants.count %}
                                             {% for i in fourth_table_participants %}
@@ -229,6 +228,19 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="mt-5 pt-3">
+                                    <div class="">
+                                        <h3 class="text-center mt-4 mb-4 h3-responsive font-weight-bold text-uppercase">
+                                            Специальный гость</h3>
+                                        {% if special.count %}
+                                            {% for i in special %}
+                                                {% include 'forum/includes/facilitator.html' %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+
                     <section id="partners" class="mt-5">
                         <div class="container pt-5">
                             <h3 class="text-center">Партнеры форума</h3>

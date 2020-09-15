@@ -1,24 +1,22 @@
 {% load static %}
+{% load thumbnail %}
+<div class="border border-light p-3 shadow-sm">
+    <div class="row">
 
-
-<div id="carousel-example-2" class="carousel slide carousel-fade shadow-lg"
-     data-ride="carousel">
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox"
-         style="border-radius: 8px; overflow: hidden;">
-        <div class="view ">
-            <img class="d-block w-100 lazy facilitator-img" style="max-height: 100vh;"
-                 src="{% static 'assets/img/mini_bird.png' %}" data-src="{{ i.avatar.url }}"
-                 alt="First slide"
-            >
-            <div class="mask rgba-black-light"></div>
+        <div class="col-lg-4 text-center mt-3">
+            {% thumbnail i.avatar "300x300" crop="center" as im %}
+            <img class="lazy m-auto rounded-circle shadow"
+                 src="{% static 'assets/img/mini_bird.png' %}" data-src="{{ im.url }}"
+                 alt="" style="min-width: 80%; max-width: 80%;">
+            {% endthumbnail %}
         </div>
-        <div class="carousel-caption p-6 facilitator-caption">
-            <h3 class="h3-responsive text-uppercase">{{ i.name }}</h3>
-            <p>{{ i.company }}</p>
-            <img src="{{ i.company_logo.url }}" alt=""
+        <div class="col-lg-8 mt-3">
+            <h4 class="h4-responsive font-weight-bold">{{ i.name|title }}</h4>
+            <div>{% autoescape off %} {{ i.bio }} {% endautoescape %}</div>
+            <img class="lazy" src="{% static 'assets/img/mini_bird.png' %}" data-src="{{ i.company_logo.url }}" alt=""
                  style="max-width: 50%; max-height: 135px;  background: #f8f9fa38; padding: 10px;">
+
         </div>
     </div>
-    <!--/.Slides-->
 </div>
+

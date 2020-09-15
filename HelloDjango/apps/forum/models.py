@@ -60,6 +60,7 @@ class Facilitator(models.Model):
     company = models.CharField('Компания', max_length=255)
     company_logo = models.ImageField('Логотип компании', upload_to=path_and_rename("forum/", 'image'), null=True)
     avatar = models.ImageField('Фотография', upload_to=path_and_rename("forum/", 'image'))
+    special_quest = models.BooleanField('Специальный гость', default=False)
 
     def __str__(self):
         return self.name
@@ -91,9 +92,11 @@ class Facilitator2020(models.Model):
     """Фасилитаторы 2020 """
     table = models.PositiveSmallIntegerField('Номер стола')
     name = models.CharField('Имя фасилитатора', max_length=255)
+    bio = RichTextUploadingField('Био', blank=True)
     company = models.CharField('Компания', max_length=255)
     company_logo = models.ImageField('Логотип компании', upload_to=path_and_rename("forum/", 'image'), null=True)
     avatar = models.ImageField('Фотография', upload_to=path_and_rename("forum/", 'image'))
+    special_quest = models.BooleanField('Специальный гость', default=False)
 
     def __str__(self):
         return self.name
@@ -108,7 +111,8 @@ class ForumParticipant2020(models.Model):
     table = models.PositiveSmallIntegerField('Номер стола')
     speaking_time = models.CharField('Время выступления', max_length=255)
     name = models.CharField('Имя участника', max_length=255)
-    company = models.CharField('Компания', max_length=255)
+    bio = RichTextUploadingField('Био', blank=True)
+    company_logo = models.ImageField('Логотип компании', upload_to=path_and_rename("forum/", 'image'), null=True)
     avatar = models.ImageField('Фотография', upload_to=path_and_rename("forum/", 'image'))
     presentation = models.FileField('Презентация', upload_to=path_and_rename("forum/", 'presentation'))
 

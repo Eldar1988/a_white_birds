@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'allauth',
     'allauth.account',
+    'sorl.thumbnail',
 
     'django.contrib.contenttypes',
     'django.contrib.sessions',

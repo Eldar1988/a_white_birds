@@ -48,6 +48,7 @@ class ForumView(View):
         second_table_facilitator = Facilitator.objects.filter(table=2)
         third_table_facilitator = Facilitator.objects.filter(table=3)
         fourth_table_facilitator = Facilitator.objects.filter(table=4)
+        special = Facilitator.objects.filter(table=5)
 
         #  Фасилитаторы 2020
         first_table_facilitator2020 = Facilitator2020.objects.filter(table=1)
@@ -79,6 +80,8 @@ class ForumView(View):
             'second_table_facilitator2020': second_table_facilitator2020,
             'third_table_facilitator2020': third_table_facilitator2020,
             'fourth_table_facilitator2020': fourth_table_facilitator2020,
+
+            'special': special,
         })
 
     def post(self, request):

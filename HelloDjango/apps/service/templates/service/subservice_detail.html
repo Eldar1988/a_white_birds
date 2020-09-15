@@ -5,139 +5,145 @@
 
 {% block content %}
 
-<section id="birds-bg" class="breadcump" style="height: 30vh;">
-    <span style="position: relative; z-index: 1;"></span>
-    <div class="" style="position: relative; z-index: 1;">
-        <div class="content">
-            <h2 class="page-header text-center h2-responsive">
-                {{ service_info.title }}
-            </h2>
-            <nav aria-label="breadcrumb text-center">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Главная</a></li>
-                    <li class="breadcrumb-item"><a href="{% url 'service_list' %}">Услуги</a></li>
-                    <li class="breadcrumb-item active">{{ service.title }}</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-    <span style="position: relative; z-index: 1;"></span>
-    <canvas class="vanta-canvas">
-    </canvas>
-</section>
+    <section id="birds-bg" class="breadcump" style="height: 30vh;">
+        <span style="position: relative; z-index: 1;"></span>
+        <div class="" style="position: relative; z-index: 1;">
+            <div class="content">
+                <h2 class="page-header text-center h2-responsive">
 
-<section class="content-start mb-5">
-    <div class="container">
-        <div class="content-block mt-5">
-            {% if form.errors %}
-                {{ form.errors }}
-
-            {% endif %}
-            <h2 class="text-center h2-responsive">{{ service.title }}</h2>
-            <div class="p-2 mt-5">
-                {% autoescape off %}
-                {{ service.description }}
-                {% endautoescape %}
-
-                <hr>
-                {% if service.program %}
-                <div class="mt-5 p-5 text-center card-border">
-                    <h3 class="h3-responsive">{{ service.presentation_text }}</h3>
-                    <a href="{{ service.program.url }}" class="btn btn-outline-danger font-weight-bold"
-                        target="_blank">{{ service.btn_text }}</a>
-                </div>
-                {% endif %}
-
-                {% if service.form %}
-                <div class="card-border p-4 mb-5 pb-5 mt-5">
-                    <h3 class="mt-5 h3-responsive">Подать заявку</h3>
-                    <form class="position-relative mt-3 text-center" method="post" action="{% url 'add_contact_service' %}">
-                        {% csrf_token %}
-
-                        <div class="row">
-                            <input type="hidden" name="id" value="{{ service.id }}">
-                            <input type="hidden" name="service" value="{{ service.title }}">
-                            <div class="md-form col-md-6">
-                                <input type="text" required id="materialForm1" name="name" class="form-control">
-                                <label for="materialForm1" class="fw-600">Ваше имя</label>
-                            </div>
-                            <div class="md-form col-md-6">
-                                <input type="number" required name="phone" id="materialForm2" class="form-control">
-                                <label for="materialForm2" class="fw-600">Телефон</label>
-                            </div>
-                            <div class="md-form mt-3 col-md-12">
-                                <textarea name="comment" id="materialForm3" rows="7" class="form-control pl-3"
-                                    placeholder="Комментарий (необязательно)"></textarea>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <button class="btn peach-gradient my-4">Отправить <i
-                                    class="fab fa-telegram-plane"></i></button>
-                        </div>
-                    </form>
-                </div>
-                {% endif %}
-
-                {% if service.form_resume  %}
-                     <div class="card-border p-4 mb-5 pb-5 mt-5">
-                                    <h3 class="mt-5 h3-responsive">Отправить резюме</h3>
-                                        <form class="position-relative mt-5 p-3" method="post" action="{% url 'add_resume' %}" enctype="multipart/form-data">
-                                        {% csrf_token %}
-                                            <input type="hidden" name="title" value="{{ service.title }}">
-                                            <input type="hidden" name="id" value="{{ service.id }}">
-                                            <div class="md-form form-group mt-5">
-                                                <p class="label-p">Ваше имя *</p>
-                                                {{ form.name }}
-                                            </div>
-
-                                            <div class="md-form form-group mt-5">
-                                                <p class="label-p">Email *</p>
-                                                {{ form.email }}
-                                            </div>
-
-                                            <div class="md-form form-group mt-5">
-                                                <p class="label-p">Номер телефона *</p>
-                                                {{ form.phone }}
-                                            </div>
-
-                                            <div class="md-form form-group mt-5">
-                                                <p class="label-p">Профиль  *</p>
-                                                {{ form.profile }}
-                                            </div>
-                                            <div class="md-form form-group mt-5">
-                                                <p class="label-p">Сфера  *</p>
-                                                {{ form.sphere }}
-                                            </div>
-                                            <div class="md-form form-group mt-5">
-                                                <p class="label-p">Опыт работы  *</p>
-                                                {{ form.experience }}
-                                            </div>
-                                            <div class="md-form form-group mt-5">
-                                                <p class="label-p">Запрос  *</p>
-                                                {{ form.self_request }}
-                                            </div>
-
-                                            <div class="md-form mt-5">
-                                                 <p class="label-p">Ваше резюме (в формате PDF)  *</p>
-                                                <div class="input-group">
-
-                                                <div class="custom-file">
-                                                    {{ form.resume }}
-                                                    <label class="custom-file-label" for="hh_resume">Выберите файл</label>
-                                                </div>
-                                            </div>
-                                            </div>
-
-                                            <button class="btn peach-gradient mt-5" type="submit">
-                                                Отправить <i class="fab fa-telegram-plane"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                {% endif %}
-
+                </h2>
+                <nav aria-label="breadcrumb text-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Главная</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'service_list' %}">Услуги</a></li>
+                        <li class="breadcrumb-item active">{{ service.title }}</li>
+                    </ol>
+                </nav>
             </div>
         </div>
-    </div>
-</section>
+        <span style="position: relative; z-index: 1;"></span>
+        <canvas class="vanta-canvas">
+        </canvas>
+    </section>
+
+    <section class="content-start mb-5">
+        <div class="container">
+            <div class="content-block mt-5">
+                {% if form.errors %}
+                    {{ form.errors }}
+
+                {% endif %}
+                <h2 class="text-center h2-responsive">{{ service.title }}</h2>
+                <div class="p-2 mt-5">
+                    {% if service.image %}
+                        <img src="{{ service.image.url }}" alt="" style="max-width: 50%; float: right;">
+                    {% endif %}
+                    {% autoescape off %}
+                        {{ service.description }}
+                    {% endautoescape %}
+
+                    <hr>
+                    {% if service.program %}
+                        <div class="mt-5 p-5 text-center card-border">
+                            <h3 class="h3-responsive">{{ service.presentation_text }}</h3>
+                            <a href="{{ service.program.url }}" class="btn btn-outline-danger font-weight-bold"
+                               target="_blank">{{ service.btn_text }}</a>
+                        </div>
+                    {% endif %}
+
+                    {% if service.form %}
+                        <div class="card-border p-4 mb-5 pb-5 mt-5">
+                            <h3 class="mt-5 h3-responsive">Подать заявку</h3>
+                            <form class="position-relative mt-3 text-center" method="post"
+                                  action="{% url 'add_contact_service' %}">
+                                {% csrf_token %}
+
+                                <div class="row">
+                                    <input type="hidden" name="id" value="{{ service.id }}">
+                                    <input type="hidden" name="service" value="{{ service.title }}">
+                                    <div class="md-form col-md-6">
+                                        <input type="text" required id="materialForm1" name="name" class="form-control">
+                                        <label for="materialForm1" class="fw-600">Ваше имя</label>
+                                    </div>
+                                    <div class="md-form col-md-6">
+                                        <input type="number" required name="phone" id="materialForm2"
+                                               class="form-control">
+                                        <label for="materialForm2" class="fw-600">Телефон</label>
+                                    </div>
+                                    <div class="md-form mt-3 col-md-12">
+                                <textarea name="comment" id="materialForm3" rows="7" class="form-control pl-3"
+                                          placeholder="Комментарий (необязательно)"></textarea>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn peach-gradient my-4">Отправить <i
+                                            class="fab fa-telegram-plane"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    {% endif %}
+
+                    {% if service.form_resume %}
+                        <div class="card-border p-4 mb-5 pb-5 mt-5">
+                            <h3 class="mt-5 h3-responsive">Отправить резюме</h3>
+                            <form class="position-relative mt-5 p-3" method="post" action="{% url 'add_resume' %}"
+                                  enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <input type="hidden" name="title" value="{{ service.title }}">
+                                <input type="hidden" name="id" value="{{ service.id }}">
+                                <div class="md-form form-group mt-5">
+                                    <p class="label-p">Ваше имя *</p>
+                                    {{ form.name }}
+                                </div>
+
+                                <div class="md-form form-group mt-5">
+                                    <p class="label-p">Email *</p>
+                                    {{ form.email }}
+                                </div>
+
+                                <div class="md-form form-group mt-5">
+                                    <p class="label-p">Номер телефона *</p>
+                                    {{ form.phone }}
+                                </div>
+
+                                <div class="md-form form-group mt-5">
+                                    <p class="label-p">Профиль *</p>
+                                    {{ form.profile }}
+                                </div>
+                                <div class="md-form form-group mt-5">
+                                    <p class="label-p">Сфера *</p>
+                                    {{ form.sphere }}
+                                </div>
+                                <div class="md-form form-group mt-5">
+                                    <p class="label-p">Опыт работы *</p>
+                                    {{ form.experience }}
+                                </div>
+                                <div class="md-form form-group mt-5">
+                                    <p class="label-p">Запрос *</p>
+                                    {{ form.self_request }}
+                                </div>
+
+                                <div class="md-form mt-5">
+                                    <p class="label-p">Ваше резюме (в формате PDF) *</p>
+                                    <div class="input-group">
+
+                                        <div class="custom-file">
+                                            {{ form.resume }}
+                                            <label class="custom-file-label" for="hh_resume">Выберите файл</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="btn peach-gradient mt-5" type="submit">
+                                    Отправить <i class="fab fa-telegram-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}

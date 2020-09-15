@@ -23,6 +23,7 @@ class SubService(models.Model):
     """Раздел услуги"""
     title = models.CharField('Заголовок', max_length=255)
     description = RichTextUploadingField('Описание услуги')
+    image = models.ImageField('Картинка услуги (необязательно)', upload_to=path_and_rename("service/", 'image'), blank=True, null=True)
     form = models.BooleanField('Форма заявки', default=False)
     form_resume = models.BooleanField('Форма с резюме', default=False)
     program = models.FileField('Программа (файл PDF)', upload_to=path_and_rename("service/", 'image'), null=True, blank=True)
@@ -43,7 +44,7 @@ class SubService(models.Model):
 class Service(models.Model):
     """Услуга"""
     number = models.PositiveSmallIntegerField('Номер', null=True, blank=True)
-    image = models.ImageField('Картинка услуги', upload_to=path_and_rename("service/", 'image'))
+    image = models.ImageField('Картинка услуги (необязательно)', upload_to=path_and_rename("service/", 'image'), blank=True, null=True)
     title = models.CharField('Заголовок - название услуги', max_length=255)
     description = RichTextUploadingField('Описание услуги')
     sub_service = models.ManyToManyField(SubService, verbose_name='Дополнительные услуги')
