@@ -1,18 +1,6 @@
-import os
-from uuid import uuid4
-
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
-
-
-def path_and_rename(path, prefix):
-    def wrapper(instance, filename):
-        ext = filename.split(".")[-1]
-        # get filename
-        filename = "{}.{}.{}".format(prefix, uuid4().hex, ext)
-        # return the whole path to the file
-        return os.path.join(path, filename)
-        return wrapper
+from HelloDjango.settings import path_and_rename
 
 
 class InfoBlock(models.Model):
@@ -68,6 +56,7 @@ class Facilitator(models.Model):
     """Фасилитаторы"""
     table = models.PositiveSmallIntegerField('Номер стола')
     name = models.CharField('Имя фасилитатора', max_length=255)
+    bio = RichTextUploadingField('Био', blank=True)
     company = models.CharField('Компания', max_length=255)
     company_logo = models.ImageField('Логотип компании', upload_to=path_and_rename("forum/", 'image'), null=True)
     avatar = models.ImageField('Фотография', upload_to=path_and_rename("forum/", 'image'))
@@ -85,7 +74,8 @@ class ForumParticipant(models.Model):
     table = models.PositiveSmallIntegerField('Номер стола')
     speaking_time = models.CharField('Время выступления', max_length=255)
     name = models.CharField('Имя участника', max_length=255)
-    company = models.CharField('Компания', max_length=255)
+    bio = RichTextUploadingField('Био', blank=True)
+    company_logo = models.ImageField('Логотип компании', upload_to=path_and_rename("forum/", 'image'), null=True)
     avatar = models.ImageField('Фотография', upload_to=path_and_rename("forum/", 'image'))
     presentation = models.FileField('Презентация', upload_to=path_and_rename("forum/", 'presentation'))
 

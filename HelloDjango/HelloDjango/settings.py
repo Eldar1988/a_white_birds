@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from uuid import uuid4
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -174,3 +176,12 @@ CKEDITOR_CONFIGS = {
 }
 
 SITE_ID = 1
+
+def path_and_rename(path, prefix):
+    def wrapper(instance, filename):
+        ext = filename.split(".")[-1]
+        # get filename
+        filename = "{}.{}.{}".format(prefix, uuid4().hex, ext)
+        # return the whole path to the file
+        return os.path.join(path, filename)
+        return wrapper

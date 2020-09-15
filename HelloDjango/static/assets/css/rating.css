@@ -88,8 +88,15 @@ bottom: .5em;
 .md-form label {
 	left: 15px;
 }
-
-
+.carousel-caption {
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+img {
+    max-width: 100%;
+    object-fit: cover;
+}
 
 @media screen and (max-width: 650px){
 	.rating-area:not(:checked) > label {

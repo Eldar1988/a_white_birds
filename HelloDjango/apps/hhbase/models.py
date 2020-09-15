@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
-from .functions import path_and_rename
+from HelloDjango.settings import path_and_rename
 
 
 class Profile(models.Model):
